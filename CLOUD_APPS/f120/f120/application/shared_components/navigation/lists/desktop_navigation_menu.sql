@@ -1,0 +1,110 @@
+prompt --application/shared_components/navigation/lists/desktop_navigation_menu
+begin
+--   Manifest
+--     LIST: Desktop Navigation Menu
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>120
+,p_default_id_offset=>0
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_list(
+ p_id=>wwv_flow_api.id(94586296604367315)
+,p_name=>'Desktop Navigation Menu'
+,p_list_status=>'PUBLIC'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(94747489955367556)
+,p_list_item_display_sequence=>10
+,p_list_item_link_text=>'Home'
+,p_list_item_link_target=>'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-home'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(95870936407140101)
+,p_list_item_display_sequence=>110
+,p_list_item_link_text=>'GLOBAL_AUDIT'
+,p_list_item_link_target=>'f?p=&APP_ID.:17:&APP_SESSION.::&DEBUG.:::'
+,p_parent_list_item_id=>wwv_flow_api.id(94747489955367556)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'17'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(94748906818367560)
+,p_list_item_display_sequence=>20
+,p_list_item_link_text=>'NK_DEVICE_TYPES'
+,p_list_item_link_target=>'f?p=&APP_ID.:2:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-table-pointer'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(94757552498367899)
+,p_list_item_display_sequence=>30
+,p_list_item_link_text=>'NK_NETWORK_DEVICESFASCET'
+,p_list_item_link_target=>'f?p=&APP_ID.:3:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-table-search'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(94787529027368376)
+,p_list_item_display_sequence=>40
+,p_list_item_link_text=>'NK_NETWORK_DEVICES'
+,p_list_item_link_target=>'f?p=&APP_ID.:5:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(94814846066368400)
+,p_list_item_display_sequence=>50
+,p_list_item_link_text=>'NK_SUPPORTED_DEVICES'
+,p_list_item_link_target=>'f?p=&APP_ID.:7:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(94828843011368722)
+,p_list_item_display_sequence=>60
+,p_list_item_link_text=>'NK_VERSIONS'
+,p_list_item_link_target=>'f?p=&APP_ID.:9:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(94843972691369043)
+,p_list_item_display_sequence=>70
+,p_list_item_link_text=>'NK_SITE_CONFIG'
+,p_list_item_link_target=>'f?p=&APP_ID.:11:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(94859077324369363)
+,p_list_item_display_sequence=>80
+,p_list_item_link_text=>'NK_SITES'
+,p_list_item_link_target=>'f?p=&APP_ID.:13:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(94875261207369680)
+,p_list_item_display_sequence=>90
+,p_list_item_link_text=>'Dashboard NK_NETWORK_DEVICES'
+,p_list_item_link_target=>'f?p=&APP_ID.:15:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-dashboard'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(94989556442067955)
+,p_list_item_display_sequence=>100
+,p_list_item_link_text=>'AUDIT using  nk_h__history'
+,p_list_item_link_target=>'f?p=&APP_ID.:16:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'16'
+);
+wwv_flow_api.component_end;
+end;
+/

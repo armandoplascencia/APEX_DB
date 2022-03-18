@@ -1,0 +1,127 @@
+prompt --application/shared_components/legacy_data_loads/eba_cust_customers
+begin
+--   Manifest
+--     EBA_CUST_CUSTOMERS
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>112
+,p_default_id_offset=>101618418936909290
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_load_table(
+ p_id=>wwv_flow_api.id(18235099579248684858)
+,p_name=>'Customers'
+,p_owner=>'#OWNER#'
+,p_table_name=>'EBA_CUST_CUSTOMERS'
+,p_unique_column_1=>'ID'
+,p_is_uk1_case_sensitive=>'N'
+,p_is_uk2_case_sensitive=>'N'
+,p_is_uk3_case_sensitive=>'N'
+,p_skip_validation=>'N'
+);
+wwv_flow_api.create_load_table_lookup(
+ p_id=>wwv_flow_api.id(18235099790341684862)
+,p_load_table_id=>wwv_flow_api.id(18235099579248684858)
+,p_load_column_name=>'CATEGORY_ID'
+,p_lookup_owner=>'#OWNER#'
+,p_lookup_table_name=>'EBA_CUST_CATEGORIES'
+,p_key_column=>'ID'
+,p_display_column=>'CATEGORY'
+,p_insert_new_value=>'N'
+);
+wwv_flow_api.create_load_table_lookup(
+ p_id=>wwv_flow_api.id(18235101821856684865)
+,p_load_table_id=>wwv_flow_api.id(18235099579248684858)
+,p_load_column_name=>'COUNTRY_ID'
+,p_lookup_owner=>'#OWNER#'
+,p_lookup_table_name=>'EBA_CUST_COUNTRIES'
+,p_key_column=>'ID'
+,p_display_column=>'COUNTRY_NAME'
+,p_insert_new_value=>'N'
+);
+wwv_flow_api.create_load_table_lookup(
+ p_id=>wwv_flow_api.id(18235100275656684864)
+,p_load_table_id=>wwv_flow_api.id(18235099579248684858)
+,p_load_column_name=>'GEOGRAPHY_ID'
+,p_lookup_owner=>'#OWNER#'
+,p_lookup_table_name=>'EBA_CUST_GEOGRAPHIES'
+,p_key_column=>'ID'
+,p_display_column=>'GEOGRAPHY_NAME'
+,p_insert_new_value=>'N'
+);
+wwv_flow_api.create_load_table_lookup(
+ p_id=>wwv_flow_api.id(20321715897426968636)
+,p_load_table_id=>wwv_flow_api.id(18235099579248684858)
+,p_load_column_name=>'ID'
+,p_lookup_owner=>'#OWNER#'
+,p_lookup_table_name=>'EBA_CUST_CUSTOMERS'
+,p_key_column=>'ID'
+,p_display_column=>'CUSTOMER_NAME'
+,p_insert_new_value=>'N'
+);
+wwv_flow_api.create_load_table_lookup(
+ p_id=>wwv_flow_api.id(18235100587045684864)
+,p_load_table_id=>wwv_flow_api.id(18235099579248684858)
+,p_load_column_name=>'INDUSTRY_ID'
+,p_lookup_owner=>'#OWNER#'
+,p_lookup_table_name=>'EBA_CUST_INDUSTRIES'
+,p_key_column=>'ID'
+,p_display_column=>'INDUSTRY_NAME'
+,p_insert_new_value=>'N'
+);
+wwv_flow_api.create_load_table_lookup(
+ p_id=>wwv_flow_api.id(18235102591422684865)
+,p_load_table_id=>wwv_flow_api.id(18235099579248684858)
+,p_load_column_name=>'REFERENCE_PHASE_ID'
+,p_lookup_owner=>'#OWNER#'
+,p_lookup_table_name=>'EBA_CUST_REF_PHASE'
+,p_key_column=>'ID'
+,p_display_column=>'STATUS'
+,p_insert_new_value=>'N'
+);
+wwv_flow_api.create_load_table_lookup(
+ p_id=>wwv_flow_api.id(18235103010955684866)
+,p_load_table_id=>wwv_flow_api.id(18235099579248684858)
+,p_load_column_name=>'SALES_CHANNEL_ID'
+,p_lookup_owner=>'#OWNER#'
+,p_lookup_table_name=>'EBA_CUST_SALES_CHANNEL'
+,p_key_column=>'ID'
+,p_display_column=>'CHANNEL'
+,p_insert_new_value=>'N'
+);
+wwv_flow_api.create_load_table_lookup(
+ p_id=>wwv_flow_api.id(18235101025994684864)
+,p_load_table_id=>wwv_flow_api.id(18235099579248684858)
+,p_load_column_name=>'STATUS_ID'
+,p_lookup_owner=>'#OWNER#'
+,p_lookup_table_name=>'EBA_CUST_STATUS'
+,p_key_column=>'ID'
+,p_display_column=>'STATUS'
+,p_insert_new_value=>'N'
+);
+wwv_flow_api.create_load_table_lookup(
+ p_id=>wwv_flow_api.id(18235101476952684865)
+,p_load_table_id=>wwv_flow_api.id(18235099579248684858)
+,p_load_column_name=>'TYPE_ID'
+,p_lookup_owner=>'#OWNER#'
+,p_lookup_table_name=>'EBA_CUST_STATUS'
+,p_key_column=>'ID'
+,p_display_column=>'STATUS'
+,p_insert_new_value=>'N'
+);
+wwv_flow_api.create_load_table_lookup(
+ p_id=>wwv_flow_api.id(18235102227767684865)
+,p_load_table_id=>wwv_flow_api.id(18235099579248684858)
+,p_load_column_name=>'USE_CASE_ID'
+,p_lookup_owner=>'#OWNER#'
+,p_lookup_table_name=>'EBA_CUST_USE_CASE'
+,p_key_column=>'ID'
+,p_display_column=>'USE_CASE'
+,p_insert_new_value=>'N'
+);
+wwv_flow_api.component_end;
+end;
+/

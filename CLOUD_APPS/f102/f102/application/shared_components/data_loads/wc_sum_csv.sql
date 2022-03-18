@@ -1,0 +1,113 @@
+prompt --application/shared_components/data_loads/wc_sum_csv
+begin
+--   Manifest
+--     DATA LOAD: wc_sum_csv
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>102
+,p_default_id_offset=>0
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_data_profile(
+ p_id=>wwv_flow_api.id(96981664915210507)
+,p_name=>'wc_sum_csv'
+,p_format=>'CSV'
+,p_encoding=>'utf-8'
+,p_csv_enclosed=>'"'
+,p_has_header_row=>true
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(96981903947210549)
+,p_data_profile_id=>wwv_flow_api.id(96981664915210507)
+,p_name=>'CASTLE'
+,p_sequence=>1
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>400
+,p_selector_type=>'NAME'
+,p_selector=>'CASTLE'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(96982202783210549)
+,p_data_profile_id=>wwv_flow_api.id(96981664915210507)
+,p_name=>'BUSINESSDATE'
+,p_sequence=>2
+,p_column_type=>'DATA'
+,p_data_type=>'DATE'
+,p_format_mask=>'MM"/"DD"/"RR'
+,p_selector_type=>'NAME'
+,p_selector=>'BUSINESSDATE'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(96982559945210550)
+,p_data_profile_id=>wwv_flow_api.id(96981664915210507)
+,p_name=>'DAYOFWEEK'
+,p_sequence=>3
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>400
+,p_selector_type=>'NAME'
+,p_selector=>'DAYOFWEEK'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(96982839752210550)
+,p_data_profile_id=>wwv_flow_api.id(96981664915210507)
+,p_name=>'HOURMINUTE'
+,p_sequence=>4
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>400
+,p_selector_type=>'NAME'
+,p_selector=>'HOURMINUTE'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(96983159443210550)
+,p_data_profile_id=>wwv_flow_api.id(96981664915210507)
+,p_name=>'PRODUCT'
+,p_sequence=>5
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>400
+,p_selector_type=>'NAME'
+,p_selector=>'PRODUCT'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(96983426083210550)
+,p_data_profile_id=>wwv_flow_api.id(96981664915210507)
+,p_name=>'FORECASTEDAMOUNTOZ'
+,p_sequence=>6
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector_type=>'NAME'
+,p_selector=>'FORECASTEDAMOUNTOZ'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(96983754249210550)
+,p_data_profile_id=>wwv_flow_api.id(96981664915210507)
+,p_name=>'FORECASTEDSALES'
+,p_sequence=>7
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector_type=>'NAME'
+,p_selector=>'FORECASTEDSALES'
+);
+wwv_flow_api.create_load_table(
+ p_id=>wwv_flow_api.id(96983914829210550)
+,p_name=>'wc_sum_csv'
+,p_static_id=>'wc_sum_csv'
+,p_target_type=>'TABLE'
+,p_table_name=>'WC_SUM_CSV'
+,p_data_profile_id=>wwv_flow_api.id(96981664915210507)
+,p_loading_method=>'APPEND'
+,p_commit_interval=>200
+,p_error_handling=>'ABORT'
+,p_skip_validation=>'N'
+);
+wwv_flow_api.component_end;
+end;
+/

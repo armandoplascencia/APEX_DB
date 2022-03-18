@@ -1,0 +1,150 @@
+prompt --application/shared_components/navigation/lists/desktop_navigation_menu
+begin
+--   Manifest
+--     LIST: Desktop Navigation Menu
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>109
+,p_default_id_offset=>0
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_list(
+ p_id=>wwv_flow_api.id(64678071525113858)
+,p_name=>'Desktop Navigation Menu'
+,p_list_status=>'PUBLIC'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(64838975559114038)
+,p_list_item_display_sequence=>10
+,p_list_item_link_text=>'Home'
+,p_list_item_link_target=>'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-home'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(69129959906623590)
+,p_list_item_display_sequence=>30
+,p_list_item_link_text=>'CR_RESTAURANT'
+,p_list_item_link_target=>'f?p=&APP_ID.:3:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'3'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(69135753154627401)
+,p_list_item_display_sequence=>40
+,p_list_item_link_text=>'CR_CAMERA'
+,p_list_item_link_target=>'f?p=&APP_ID.:4:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'4'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(69140452201630653)
+,p_list_item_display_sequence=>50
+,p_list_item_link_text=>'CR_FRAME'
+,p_list_item_link_target=>'f?p=&APP_ID.:5:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'5'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(69143979568634562)
+,p_list_item_display_sequence=>60
+,p_list_item_link_text=>'CR_FRAME_BOUNDING_BOX'
+,p_list_item_link_target=>'f?p=&APP_ID.:6:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'6'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(69146694195638227)
+,p_list_item_display_sequence=>70
+,p_list_item_link_text=>'CR_BOUNDING_BOX'
+,p_list_item_link_target=>'f?p=&APP_ID.:7:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'7'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(69151313742641906)
+,p_list_item_display_sequence=>80
+,p_list_item_link_text=>'CR_TYPE'
+,p_list_item_link_target=>'f?p=&APP_ID.:8:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'8'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(69153655525645873)
+,p_list_item_display_sequence=>90
+,p_list_item_link_text=>'CR_OBJECT'
+,p_list_item_link_target=>'f?p=&APP_ID.:9:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'9'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(69157540346649231)
+,p_list_item_display_sequence=>100
+,p_list_item_link_text=>'CR_OBJECT_ATTRIBUTE'
+,p_list_item_link_target=>'f?p=&APP_ID.:10:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'10'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(69161049916652995)
+,p_list_item_display_sequence=>110
+,p_list_item_link_text=>'CR_OBJECT_STATUS'
+,p_list_item_link_target=>'f?p=&APP_ID.:11:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'11'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(69164112180656909)
+,p_list_item_display_sequence=>120
+,p_list_item_link_text=>'CR_STATUS'
+,p_list_item_link_target=>'f?p=&APP_ID.:12:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'12'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(69166438134659801)
+,p_list_item_display_sequence=>130
+,p_list_item_link_text=>'CR_RECIPE'
+,p_list_item_link_target=>'f?p=&APP_ID.:13:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'13'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(69169981803662593)
+,p_list_item_display_sequence=>140
+,p_list_item_link_text=>'CR_VERSION'
+,p_list_item_link_target=>'f?p=&APP_ID.:14:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'14'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(69172242811665629)
+,p_list_item_display_sequence=>150
+,p_list_item_link_text=>'CR_ATTRIBUTE'
+,p_list_item_link_target=>'f?p=&APP_ID.:15:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'15'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(64983791807116544)
+,p_list_item_display_sequence=>10000
+,p_list_item_link_text=>'Administration'
+,p_list_item_link_target=>'f?p=&APP_ID.:10000:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-user-wrench'
+,p_security_scheme=>wwv_flow_api.id(64828318804113995)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(64840401665114042)
+,p_list_item_display_sequence=>999999
+,p_list_item_link_text=>'FC'
+,p_list_item_link_target=>'f?p=&APP_ID.:2:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-table-search'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.component_end;
+end;
+/

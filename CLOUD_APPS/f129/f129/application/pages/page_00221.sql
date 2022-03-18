@@ -1,0 +1,386 @@
+prompt --application/pages/page_00221
+begin
+--   Manifest
+--     PAGE: 00221
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>129
+,p_default_id_offset=>101668256384016436
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_page(
+ p_id=>221
+,p_user_interface_id=>wwv_flow_api.id(3038757958926989645)
+,p_name=>'Github Repositories'
+,p_alias=>'GITHUB-REPOSITORIES'
+,p_step_title=>'Github Repositories'
+,p_autocomplete_on_off=>'OFF'
+,p_javascript_code=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'function showDetails( pRepository ) {',
+'    $s("P221_REPO", pRepository);',
+'    apex.event.trigger( document, "refresh_details");',
+'}'))
+,p_inline_css=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'.fa-issues-true:before{content:"\f145"}',
+'.fa-downloads-true:before{content:"\f019"}',
+'.fa-pages-true:before{content:"\f016"}',
+'.fa-wiki-true:before{content:"\e964"}',
+'.fa-projects-true:before{content:"\e958"}'))
+,p_page_template_options=>'#DEFAULT#'
+,p_last_updated_by=>'ALLAN'
+,p_last_upd_yyyymmddhh24miss=>'20210301103321'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(161232137354383435)
+,p_plug_name=>'Breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_api.id(3692230518481414776)
+,p_plug_display_sequence=>1
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_menu_id=>wwv_flow_api.id(3236043968975858584)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>wwv_flow_api.id(3692251387321414861)
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(820071167639212320)
+,p_plug_name=>'Information'
+,p_region_template_options=>'#DEFAULT#:t-Region--hideHeader:t-Region--noUI:t-Region--scrollBody'
+,p_plug_template=>wwv_flow_api.id(3692227943213414771)
+,p_plug_display_sequence=>10
+,p_include_in_reg_disp_sel_yn=>'Y'
+,p_plug_display_point=>'BODY'
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<p>This example makes use of the <a href="https://api.github.com/" target="_blank">Github API</a>. In Shared Components, the Web Source <strong>Sample Application - Github Repositories</strong> references all repositories of <strong>oracle</strong> G'
+||'ithub user. Further Web Source Modules are available for <em>Commits</em>, <em>Issues</em> and <em>Pull Requests</em>.</p>',
+'<p>This page renders some important repository attributes as an Interactive Report. The report behaves like a report on a local table; all interactive report features like searching, sorting or computations are available. Clicking on the repository n'
+||'ame opens a modal dialog showing repository details as Report, Calendar or Cards view.</p>',
+'<p>To avoid too many HTTP requests, <em>Caching</em> is enabled for this Web Source Module (Shared Components &gt; Web Source Modules &gt; Github &gt; Operations &gt; Caching).</p>'))
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(823606066360813890)
+,p_plug_name=>'Repositories'
+,p_region_template_options=>'#DEFAULT#'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_api.id(3692226396844414764)
+,p_plug_display_sequence=>20
+,p_include_in_reg_disp_sel_yn=>'Y'
+,p_plug_display_point=>'BODY'
+,p_location=>'WEB_SOURCE'
+,p_web_src_module_id=>wwv_flow_api.id(823455699876762634)
+,p_query_type=>'SQL'
+,p_plug_source_type=>'NATIVE_IR'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_prn_content_disposition=>'ATTACHMENT'
+,p_prn_document_header=>'APEX'
+,p_prn_units=>'INCHES'
+,p_prn_paper_size=>'LETTER'
+,p_prn_width=>8.5
+,p_prn_height=>11
+,p_prn_orientation=>'HORIZONTAL'
+,p_prn_page_header_font_color=>'#000000'
+,p_prn_page_header_font_family=>'Helvetica'
+,p_prn_page_header_font_weight=>'normal'
+,p_prn_page_header_font_size=>'12'
+,p_prn_page_footer_font_color=>'#000000'
+,p_prn_page_footer_font_family=>'Helvetica'
+,p_prn_page_footer_font_weight=>'normal'
+,p_prn_page_footer_font_size=>'12'
+,p_prn_header_bg_color=>'#9bafde'
+,p_prn_header_font_color=>'#000000'
+,p_prn_header_font_family=>'Helvetica'
+,p_prn_header_font_weight=>'normal'
+,p_prn_header_font_size=>'10'
+,p_prn_body_bg_color=>'#efefef'
+,p_prn_body_font_color=>'#000000'
+,p_prn_body_font_family=>'Helvetica'
+,p_prn_body_font_weight=>'normal'
+,p_prn_body_font_size=>'10'
+,p_prn_border_width=>.5
+,p_prn_page_header_alignment=>'CENTER'
+,p_prn_page_footer_alignment=>'CENTER'
+);
+wwv_flow_api.create_worksheet(
+ p_id=>wwv_flow_api.id(823606221052813891)
+,p_max_row_count=>'1000000'
+,p_show_nulls_as=>'-'
+,p_pagination_type=>'ROWS_X_TO_Y'
+,p_pagination_display_pos=>'BOTTOM_RIGHT'
+,p_report_list_mode=>'TABS'
+,p_lazy_loading=>false
+,p_show_detail_link=>'N'
+,p_show_notify=>'Y'
+,p_download_formats=>'CSV:HTML:EMAIL:XLSX:PDF:RTF'
+,p_owner=>'CARSTEN'
+,p_internal_uid=>719427095293118114
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823606232273813892)
+,p_db_column_name=>'ID'
+,p_display_order=>10
+,p_column_identifier=>'A'
+,p_column_label=>'Id'
+,p_column_type=>'NUMBER'
+,p_display_text_as=>'HIDDEN'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823606424051813893)
+,p_db_column_name=>'NAME'
+,p_display_order=>20
+,p_column_identifier=>'B'
+,p_column_label=>'Name'
+,p_column_link=>'f?p=&APP_ID.:222:&SESSION.::&DEBUG.:RP:P222_REPO:#NAME#'
+,p_column_linktext=>'#NAME#'
+,p_column_type=>'STRING'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823606458778813894)
+,p_db_column_name=>'AVATAR_URL'
+,p_display_order=>30
+,p_column_identifier=>'C'
+,p_column_label=>'Logo'
+,p_column_type=>'STRING'
+,p_display_text_as=>'HIDDEN'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823606744126813897)
+,p_db_column_name=>'DESCRIPTION'
+,p_display_order=>40
+,p_column_identifier=>'F'
+,p_column_label=>'Description'
+,p_column_type=>'STRING'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823608316272813912)
+,p_db_column_name=>'WATCHERS'
+,p_display_order=>50
+,p_column_identifier=>'U'
+,p_column_label=>'Watchers'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823608094127813910)
+,p_db_column_name=>'FORKS_COUNT'
+,p_display_order=>60
+,p_column_identifier=>'S'
+,p_column_label=>'Forks'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823606964202813899)
+,p_db_column_name=>'UPDATED_AT'
+,p_display_order=>70
+,p_column_identifier=>'H'
+,p_column_label=>'Updated'
+,p_column_type=>'DATE'
+,p_column_alignment=>'CENTER'
+,p_format_mask=>'SINCE'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823607170667813901)
+,p_db_column_name=>'SIZE_'
+,p_display_order=>80
+,p_column_identifier=>'J'
+,p_column_label=>'Size '
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_format_mask=>'FILESIZE'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823607273409813902)
+,p_db_column_name=>'STARGAZERS_COUNT'
+,p_display_order=>90
+,p_column_identifier=>'K'
+,p_column_label=>'Stargazers'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823607391095813903)
+,p_db_column_name=>'WATCHERS_COUNT'
+,p_display_order=>100
+,p_column_identifier=>'L'
+,p_column_label=>'Watchers count'
+,p_column_type=>'NUMBER'
+,p_column_alignment=>'RIGHT'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823607432569813904)
+,p_db_column_name=>'LANGUAGE'
+,p_display_order=>110
+,p_column_identifier=>'M'
+,p_column_label=>'Language'
+,p_column_type=>'STRING'
+,p_display_text_as=>'WITHOUT_MODIFICATION'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823607583994813905)
+,p_db_column_name=>'HAS_ISSUES'
+,p_display_order=>120
+,p_column_identifier=>'N'
+,p_column_label=>'Issues'
+,p_column_html_expression=>'<span class="fa fa-issues-#HAS_ISSUES#"></span>&nbsp;#OPEN_ISSUES_COUNT#'
+,p_column_type=>'STRING'
+,p_column_alignment=>'CENTER'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823607704737813906)
+,p_db_column_name=>'HAS_PROJECTS'
+,p_display_order=>130
+,p_column_identifier=>'O'
+,p_column_label=>'Projects'
+,p_column_html_expression=>'<span class="fa fa-projects-#HAS_PROJECTS#"></span>'
+,p_column_type=>'STRING'
+,p_column_alignment=>'CENTER'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823607762771813907)
+,p_db_column_name=>'HAS_DOWNLOADS'
+,p_display_order=>140
+,p_column_identifier=>'P'
+,p_column_label=>'Downloads'
+,p_column_type=>'STRING'
+,p_display_text_as=>'HIDDEN'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823607872163813908)
+,p_db_column_name=>'HAS_WIKI'
+,p_display_order=>150
+,p_column_identifier=>'Q'
+,p_column_label=>'Wiki'
+,p_column_html_expression=>'<span class="fa fa-wiki-#HAS_WIKI#"></span>'
+,p_column_type=>'STRING'
+,p_column_alignment=>'CENTER'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823607967324813909)
+,p_db_column_name=>'HAS_PAGES'
+,p_display_order=>160
+,p_column_identifier=>'R'
+,p_column_label=>'Pages'
+,p_column_html_expression=>'<span class="fa fa-pages-#HAS_PAGES#"></span>'
+,p_column_type=>'STRING'
+,p_column_alignment=>'CENTER'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823606914963813898)
+,p_db_column_name=>'CREATED_AT'
+,p_display_order=>170
+,p_column_identifier=>'G'
+,p_column_label=>'Created'
+,p_column_type=>'DATE'
+,p_heading_alignment=>'LEFT'
+,p_column_alignment=>'CENTER'
+,p_format_mask=>'mm/dd/yyyy'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823608328077813913)
+,p_db_column_name=>'LICENSE'
+,p_display_order=>180
+,p_column_identifier=>'V'
+,p_column_label=>'License'
+,p_column_type=>'STRING'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823606577637813895)
+,p_db_column_name=>'HTML_URL'
+,p_display_order=>190
+,p_column_identifier=>'D'
+,p_column_label=>'Html url'
+,p_column_type=>'STRING'
+,p_display_text_as=>'HIDDEN'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823607124213813900)
+,p_db_column_name=>'HOMEPAGE'
+,p_display_order=>200
+,p_column_identifier=>'I'
+,p_column_label=>'Homepage'
+,p_column_type=>'STRING'
+,p_display_text_as=>'HIDDEN'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823606643884813896)
+,p_db_column_name=>'SITE_ADMIN'
+,p_display_order=>210
+,p_column_identifier=>'E'
+,p_column_label=>'Site admin'
+,p_column_type=>'STRING'
+,p_display_text_as=>'HIDDEN'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823608175033813911)
+,p_db_column_name=>'OPEN_ISSUES_COUNT'
+,p_display_order=>220
+,p_column_identifier=>'T'
+,p_column_label=>'Open issues count'
+,p_column_type=>'NUMBER'
+,p_display_text_as=>'HIDDEN'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(823608426974813914)
+,p_db_column_name=>'DOWNLOADS_URL'
+,p_display_order=>230
+,p_column_identifier=>'W'
+,p_column_label=>'Downloads url'
+,p_column_type=>'STRING'
+,p_display_text_as=>'HIDDEN'
+);
+wwv_flow_api.create_worksheet_rpt(
+ p_id=>wwv_flow_api.id(823650399691829537)
+,p_application_user=>'APXWS_DEFAULT'
+,p_report_seq=>10
+,p_report_type=>'CHART'
+,p_report_alias=>'7194713'
+,p_status=>'PUBLIC'
+,p_is_default=>'Y'
+,p_view_mode=>'REPORT'
+,p_report_columns=>'AVATAR_URL:NAME:LANGUAGE:DESCRIPTION:UPDATED_AT:STARGAZERS_COUNT:HAS_ISSUES:HAS_DOWNLOADS:SIZE_:FORKS_COUNT:CREATED_AT::DOWNLOADS_URL'
+,p_chart_type=>'pie'
+,p_chart_label_column=>'LANGUAGE'
+,p_chart_value_column=>'WATCHERS'
+,p_chart_aggregate=>'COUNT'
+,p_chart_sorting=>'DEFAULT'
+,p_chart_orientation=>'vertical'
+);
+wwv_flow_api.create_page_da_event(
+ p_id=>wwv_flow_api.id(150851676988282499)
+,p_name=>'Show Issues'
+,p_event_sequence=>20
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P221_DETAIL'
+,p_condition_element=>'P221_DETAIL'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'ISSUES'
+,p_bind_type=>'bind'
+,p_bind_event_type=>'change'
+);
+wwv_flow_api.create_page_da_event(
+ p_id=>wwv_flow_api.id(150852001143282502)
+,p_name=>'Show Pulls'
+,p_event_sequence=>30
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P221_DETAIL'
+,p_condition_element=>'P221_DETAIL'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'PULLS'
+,p_bind_type=>'bind'
+,p_bind_event_type=>'change'
+);
+wwv_flow_api.component_end;
+end;
+/

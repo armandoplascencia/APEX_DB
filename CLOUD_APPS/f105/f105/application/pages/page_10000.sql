@@ -1,0 +1,161 @@
+prompt --application/pages/page_10000
+begin
+--   Manifest
+--     PAGE: 10000
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>105
+,p_default_id_offset=>69016641819901842
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_page(
+ p_id=>10000
+,p_user_interface_id=>wwv_flow_api.id(74382049182121932)
+,p_name=>'OTP Required'
+,p_page_mode=>'MODAL'
+,p_step_title=>'OTP Required'
+,p_first_item=>'AUTO_FIRST_ITEM'
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_page_is_public_y_n=>'Y'
+,p_protection_level=>'C'
+,p_last_updated_by=>'APNG'
+,p_last_upd_yyyymmddhh24miss=>'20181018002303'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(74455014028384261)
+,p_plug_name=>'Verification Code'
+,p_region_template_options=>'#DEFAULT#:t-Region--removeHeader:t-Region--noBorder:t-Region--scrollBody:t-Form--xlarge:t-Form--stretchInputs'
+,p_plug_template=>wwv_flow_api.id(74307799116121779)
+,p_plug_display_sequence=>10
+,p_include_in_reg_disp_sel_yn=>'Y'
+,p_plug_display_point=>'BODY'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(74455278480384263)
+,p_plug_name=>'Buttons'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_api.id(74287369895121754)
+,p_plug_display_sequence=>10
+,p_include_in_reg_disp_sel_yn=>'Y'
+,p_plug_display_point=>'REGION_POSITION_03'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(74455315022384264)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_api.id(74455278480384263)
+,p_button_name=>'VERIFY'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#:t-Button--large:t-Button--stretch'
+,p_button_template_id=>wwv_flow_api.id(74360112729121828)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Verify'
+,p_button_position=>'BELOW_BOX'
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(74455410979384265)
+,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_api.id(74455278480384263)
+,p_button_name=>'CANCEL'
+,p_button_action=>'DEFINED_BY_DA'
+,p_button_template_options=>'#DEFAULT#:t-Button--large:t-Button--stretch'
+,p_button_template_id=>wwv_flow_api.id(74360112729121828)
+,p_button_image_alt=>'Cancel'
+,p_button_position=>'BELOW_BOX'
+,p_button_execute_validations=>'N'
+,p_warn_on_unsaved_changes=>null
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(74455167438384262)
+,p_name=>'P10000_OTP'
+,p_is_required=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_api.id(74455014028384261)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'Please enter the verification code from your security application:'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>30
+,p_cMaxlength=>6
+,p_field_template=>wwv_flow_api.id(74359842894121826)
+,p_item_template_options=>'#DEFAULT#'
+,p_protection_level=>'I'
+,p_encrypt_session_state_yn=>'Y'
+,p_attribute_03=>'center'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(74497171981948042)
+,p_name=>'P10000_USERNAME'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_api.id(74455014028384261)
+,p_display_as=>'NATIVE_HIDDEN'
+,p_protection_level=>'S'
+,p_encrypt_session_state_yn=>'Y'
+,p_attribute_01=>'Y'
+);
+wwv_flow_api.create_page_validation(
+ p_id=>wwv_flow_api.id(74546141039814621)
+,p_validation_name=>'validateOTP'
+,p_validation_sequence=>10
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'pkg_tfa_apex.f_validate_otp(',
+'  p_username => :P10000_USERNAME',
+'  , p_otp => :P10000_OTP',
+')'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>'Verification code does not match. Please try again.'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+);
+wwv_flow_api.create_page_da_event(
+ p_id=>wwv_flow_api.id(74455499714384266)
+,p_name=>'cancelDialog'
+,p_event_sequence=>10
+,p_triggering_element_type=>'BUTTON'
+,p_triggering_button_id=>wwv_flow_api.id(74455410979384265)
+,p_bind_type=>'bind'
+,p_bind_event_type=>'click'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(74455684291384267)
+,p_event_id=>wwv_flow_api.id(74455499714384266)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_DIALOG_CANCEL'
+);
+wwv_flow_api.create_page_process(
+ p_id=>wwv_flow_api.id(74497030603948041)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'finalizeLogin'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'apex_authentication.post_login(',
+'  p_username => :P10000_USERNAME',
+'  , p_password => null',
+');'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+);
+wwv_flow_api.create_page_process(
+ p_id=>wwv_flow_api.id(74496933480948040)
+,p_process_sequence=>20
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_SESSION_STATE'
+,p_process_name=>'clearSessionState'
+,p_attribute_01=>'CLEAR_CACHE_FOR_PAGES'
+,p_attribute_04=>'9999,10000'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+);
+wwv_flow_api.component_end;
+end;
+/

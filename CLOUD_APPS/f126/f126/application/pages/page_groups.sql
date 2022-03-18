@@ -1,0 +1,60 @@
+prompt --application/pages/page_groups
+begin
+--   Manifest
+--     PAGE GROUPS: 126
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>126
+,p_default_id_offset=>101651461840938715
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_page_group(
+ p_id=>wwv_flow_api.id(1398765466955907867)
+,p_group_name=>'ACL'
+);
+wwv_flow_api.create_page_group(
+ p_id=>wwv_flow_api.id(9022053313788358351)
+,p_group_name=>'Administration'
+);
+wwv_flow_api.create_page_group(
+ p_id=>wwv_flow_api.id(1398772477606929854)
+,p_group_name=>'Events'
+);
+wwv_flow_api.create_page_group(
+ p_id=>wwv_flow_api.id(1398765768340908189)
+,p_group_name=>'Help'
+);
+wwv_flow_api.create_page_group(
+ p_id=>wwv_flow_api.id(1398765869379908494)
+,p_group_name=>'Home'
+);
+wwv_flow_api.create_page_group(
+ p_id=>wwv_flow_api.id(1398773857782943052)
+,p_group_name=>'Login'
+);
+wwv_flow_api.create_page_group(
+ p_id=>wwv_flow_api.id(1398766178036911013)
+,p_group_name=>'Mobile'
+);
+wwv_flow_api.create_page_group(
+ p_id=>wwv_flow_api.id(9022052510671357508)
+,p_group_name=>'Public'
+);
+wwv_flow_api.create_page_group(
+ p_id=>wwv_flow_api.id(1398766455311913926)
+,p_group_name=>'Search'
+);
+wwv_flow_api.create_page_group(
+ p_id=>wwv_flow_api.id(1398766556350914235)
+,p_group_name=>'Tags'
+);
+wwv_flow_api.create_page_group(
+ p_id=>wwv_flow_api.id(1398766353926913558)
+,p_group_name=>'Timeline'
+);
+wwv_flow_api.component_end;
+end;
+/

@@ -1,0 +1,365 @@
+prompt --application/pages/page_00014
+begin
+--   Manifest
+--     PAGE: 00014
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>121
+,p_default_id_offset=>0
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_page(
+ p_id=>14
+,p_user_interface_id=>wwv_flow_api.id(95153343667962421)
+,p_name=>'DATADOG__HOSTS'
+,p_alias=>'DATADOG-HOSTS'
+,p_step_title=>'DATADOG__HOSTS'
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_last_updated_by=>'CR_COFFEE'
+,p_last_upd_yyyymmddhh24miss=>'20220204071621'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(96193696960384278)
+,p_plug_name=>'DATADOG__HOSTS'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_api.id(95050013540962342)
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'BODY'
+,p_query_type=>'TABLE'
+,p_query_table=>'DATADOG__HOSTS'
+,p_include_rowid_column=>false
+,p_plug_source_type=>'NATIVE_IR'
+,p_prn_page_header=>'DATADOG__HOSTS'
+);
+wwv_flow_api.create_worksheet(
+ p_id=>wwv_flow_api.id(96193742433384278)
+,p_name=>'DATADOG__HOSTS'
+,p_max_row_count_message=>'The maximum row count for this report is #MAX_ROW_COUNT# rows.  Please apply a filter to reduce the number of records in your query.'
+,p_no_data_found_message=>'No data found.'
+,p_allow_save_rpt_public=>'Y'
+,p_pagination_type=>'ROWS_X_TO_Y_OF_Z'
+,p_pagination_display_pos=>'TOP_AND_BOTTOM_LEFT'
+,p_show_display_row_count=>'Y'
+,p_report_list_mode=>'TABS'
+,p_lazy_loading=>false
+,p_show_detail_link=>'N'
+,p_show_notify=>'Y'
+,p_download_formats=>'CSV:HTML:EMAIL:XLSX:PDF:RTF'
+,p_owner=>'MISO'
+,p_internal_uid=>96193742433384278
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96194123843384286)
+,p_db_column_name=>'ID_1'
+,p_display_order=>1
+,p_column_identifier=>'A'
+,p_column_label=>'Id 1'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96194515011384286)
+,p_db_column_name=>'ID'
+,p_display_order=>2
+,p_column_identifier=>'B'
+,p_column_label=>'Id'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96194917298384287)
+,p_db_column_name=>'UP'
+,p_display_order=>3
+,p_column_identifier=>'C'
+,p_column_label=>'Up'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96195393099384287)
+,p_db_column_name=>'GOHAI'
+,p_display_order=>4
+,p_column_identifier=>'D'
+,p_column_label=>'Gohai'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96195790285384287)
+,p_db_column_name=>'HOST_ID'
+,p_display_order=>5
+,p_column_identifier=>'E'
+,p_column_label=>'Host Id'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96196144265384287)
+,p_db_column_name=>'MACHINE'
+,p_display_order=>6
+,p_column_identifier=>'F'
+,p_column_label=>'Machine'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96196594573384287)
+,p_db_column_name=>'NETWORK'
+,p_display_order=>7
+,p_column_identifier=>'G'
+,p_column_label=>'Network'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96196917932384288)
+,p_db_column_name=>'PYTHONV'
+,p_display_order=>8
+,p_column_identifier=>'H'
+,p_column_label=>'Pythonv'
+,p_column_type=>'DATE'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96197333890384288)
+,p_db_column_name=>'CPUCORES'
+,p_display_order=>9
+,p_column_identifier=>'I'
+,p_column_label=>'Cpucores'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96197762423384288)
+,p_db_column_name=>'PLATFORM'
+,p_display_order=>10
+,p_column_identifier=>'J'
+,p_column_label=>'Platform'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96198181362384288)
+,p_db_column_name=>'PROCESSOR'
+,p_display_order=>11
+,p_column_identifier=>'K'
+,p_column_label=>'Processor'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96198574004384288)
+,p_db_column_name=>'TRANSPORT'
+,p_display_order=>12
+,p_column_identifier=>'L'
+,p_column_label=>'Transport'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96198946606384289)
+,p_db_column_name=>'SOCKET_FQDN'
+,p_display_order=>13
+,p_column_identifier=>'M'
+,p_column_label=>'Socket Fqdn'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96199396346384289)
+,p_db_column_name=>'AGENT_FLAVOR'
+,p_display_order=>14
+,p_column_identifier=>'N'
+,p_column_label=>'Agent Flavor'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96199736169384289)
+,p_db_column_name=>'AGENT_VERSION'
+,p_display_order=>15
+,p_column_identifier=>'O'
+,p_column_label=>'Agent Version'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96200192177384289)
+,p_db_column_name=>'DOCKER_SWARM'
+,p_display_order=>16
+,p_column_identifier=>'P'
+,p_column_label=>'Docker Swarm'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96200576947384289)
+,p_db_column_name=>'DOCKER_VERSION'
+,p_display_order=>17
+,p_column_identifier=>'Q'
+,p_column_label=>'Docker Version'
+,p_column_type=>'DATE'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96200902498384290)
+,p_db_column_name=>'TOOL'
+,p_display_order=>18
+,p_column_identifier=>'R'
+,p_column_label=>'Tool'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96201389158384290)
+,p_db_column_name=>'TOOL_VERSION'
+,p_display_order=>19
+,p_column_identifier=>'S'
+,p_column_label=>'Tool Version'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96201717183384290)
+,p_db_column_name=>'INSTALLER_VERSION'
+,p_display_order=>20
+,p_column_identifier=>'T'
+,p_column_label=>'Installer Version'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96202151741384290)
+,p_db_column_name=>'SOCKET_HOSTNAME'
+,p_display_order=>21
+,p_column_identifier=>'U'
+,p_column_label=>'Socket Hostname'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96202585365384290)
+,p_db_column_name=>'NAME'
+,p_display_order=>22
+,p_column_identifier=>'V'
+,p_column_label=>'Name'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96202905941384291)
+,p_db_column_name=>'CPU'
+,p_display_order=>23
+,p_column_identifier=>'W'
+,p_column_label=>'Cpu'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96203324814384291)
+,p_db_column_name=>'LOAD'
+,p_display_order=>24
+,p_column_identifier=>'X'
+,p_column_label=>'Load'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96203778004384291)
+,p_db_column_name=>'IOWAIT'
+,p_display_order=>25
+,p_column_identifier=>'Y'
+,p_column_label=>'Iowait'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96204168514384292)
+,p_db_column_name=>'IS_MUTED'
+,p_display_order=>26
+,p_column_identifier=>'Z'
+,p_column_label=>'Is Muted'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96204555208384292)
+,p_db_column_name=>'HOST_NAME'
+,p_display_order=>27
+,p_column_identifier=>'AA'
+,p_column_label=>'Host Name'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96204913400384292)
+,p_db_column_name=>'MUTE_TIMEOUT'
+,p_display_order=>28
+,p_column_identifier=>'AB'
+,p_column_label=>'Mute Timeout'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(96205368716384292)
+,p_db_column_name=>'LAST_REPORTED_TIME'
+,p_display_order=>29
+,p_column_identifier=>'AC'
+,p_column_label=>'Last Reported Time'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_rpt(
+ p_id=>wwv_flow_api.id(96205934492387955)
+,p_application_user=>'APXWS_DEFAULT'
+,p_report_seq=>10
+,p_report_alias=>'962060'
+,p_status=>'PUBLIC'
+,p_is_default=>'Y'
+,p_report_columns=>'ID_1:ID:UP:GOHAI:HOST_ID:MACHINE:NETWORK:PYTHONV:CPUCORES:PLATFORM:PROCESSOR:TRANSPORT:SOCKET_FQDN:AGENT_FLAVOR:AGENT_VERSION:DOCKER_SWARM:DOCKER_VERSION:TOOL:TOOL_VERSION:INSTALLER_VERSION:SOCKET_HOSTNAME:NAME:CPU:LOAD:IOWAIT:IS_MUTED:HOST_NAME:MUTE'
+||'_TIMEOUT:LAST_REPORTED_TIME'
+);
+wwv_flow_api.component_end;
+end;
+/

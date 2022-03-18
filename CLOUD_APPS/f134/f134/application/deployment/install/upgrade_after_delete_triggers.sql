@@ -1,0 +1,131 @@
+prompt --application/deployment/install/upgrade_after_delete_triggers
+begin
+--   Manifest
+--     INSTALL: UPGRADE-After Delete Triggers
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>134
+,p_default_id_offset=>172493832712964115
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_install_script(
+ p_id=>wwv_flow_api.id(3945340351868807015)
+,p_install_id=>wwv_flow_api.id(9012014618759672631)
+,p_name=>'After Delete Triggers'
+,p_sequence=>1240
+,p_script_type=>'UPGRADE'
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'create or replace trigger "AD_EBA_PROJ_USER_REF"',
+'    after delete on "EBA_PROJ_USER_REF"',
+'    for each row',
+'begin',
+'    if not eba_proj_fw.g_project_deleted then',
+'        if :old.project_id is not null then',
+'            update eba_proj_status$ set updated = localtimestamp where id = :old.project_id;',
+'        end if;',
+'    end if;',
+'end;',
+'/',
+'',
+'create or replace trigger ad_proj_status_ms',
+'    after delete on eba_proj_status_ms$',
+'    for each row',
+'begin',
+'    if not eba_proj_fw.g_project_deleted then',
+'        if :old.project_id is not null then',
+'            update eba_proj_status$ set updated = localtimestamp where id = :old.project_id;',
+'        end if;',
+'    end if;',
+'end;',
+'/',
+'',
+'create or replace trigger ad_eba_proj_status_updates',
+'    after delete on eba_proj_status_updates$',
+'    for each row',
+'begin',
+'    if not eba_proj_fw.g_project_deleted then',
+'        if :old.project_id is not null then',
+'            update eba_proj_status$ set updated = localtimestamp where id = :old.project_id;',
+'        end if;',
+'    end if;',
+'end;',
+'/',
+'',
+'create or replace trigger ad_eba_proj_status_country_ref',
+'    after delete on eba_proj_status_country_ref$',
+'    for each row',
+'begin',
+'    if not eba_proj_fw.g_project_deleted then',
+'        if :old.project_id is not null then',
+'            update eba_proj_status$ set updated = localtimestamp where id = :old.project_id;',
+'        end if;',
+'    end if;',
+'end;',
+'/',
+'',
+'create or replace trigger ad_eba_proj_status_issues',
+'    after delete on eba_proj_status_issues$',
+'    for each row',
+'begin',
+'    if not eba_proj_fw.g_project_deleted then',
+'        if :old.project_id is not null then',
+'            update eba_proj_status$ set updated = localtimestamp where id = :old.project_id;',
+'        end if;',
+'    end if;',
+'end;',
+'/',
+'',
+'create or replace trigger ad_eba_proj_resources',
+'    after delete on eba_proj_resources$',
+'    for each row',
+'begin',
+'    if not eba_proj_fw.g_project_deleted then',
+'        if :old.project_id is not null then',
+'            update eba_proj_status$ set updated = localtimestamp where id = :old.project_id;',
+'        end if;',
+'    end if;',
+'end;',
+'/',
+'',
+'create or replace trigger ad_eba_proj_status_links',
+'    after delete on eba_proj_status_links$',
+'    for each row',
+'begin',
+'    if not eba_proj_fw.g_project_deleted then',
+'        if :old.project_id is not null then',
+'            update eba_proj_status$ set updated = localtimestamp where id = :old.project_id;',
+'        end if;',
+'    end if;',
+'end;',
+'/',
+'',
+'create or replace trigger ad_eba_proj_status_files',
+'    after delete on eba_proj_status_files$',
+'    for each row',
+'begin',
+'    if not eba_proj_fw.g_project_deleted then',
+'        if :old.project_id is not null then',
+'            update eba_proj_status$ set updated = localtimestamp where id = :old.project_id;',
+'        end if;',
+'    end if;',
+'end;',
+'/',
+'',
+'create or replace trigger ad_eba_proj_status_rpts',
+'    after delete on eba_proj_status_rpts$',
+'    for each row',
+'begin',
+'    if not eba_proj_fw.g_project_deleted then',
+'        if :old.project_id is not null then',
+'            update eba_proj_status$ set updated = localtimestamp where id = :old.project_id;',
+'        end if;',
+'    end if;',
+'end;',
+'/'))
+);
+wwv_flow_api.component_end;
+end;
+/

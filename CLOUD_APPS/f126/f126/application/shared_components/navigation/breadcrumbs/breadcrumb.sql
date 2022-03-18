@@ -1,0 +1,323 @@
+prompt --application/shared_components/navigation/breadcrumbs/breadcrumb
+begin
+--   Manifest
+--     MENU:  Breadcrumb
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>126
+,p_default_id_offset=>101651461840938715
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_menu(
+ p_id=>wwv_flow_api.id(9022023598749333527)
+,p_name=>' Breadcrumb'
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(1144554134354607644)
+,p_parent_id=>wwv_flow_api.id(3337754765984292883)
+,p_short_name=>'Application Appearance'
+,p_link=>'f?p=&APP_ID.:41:&SESSION.'
+,p_page_id=>41
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(1398770760776918196)
+,p_parent_id=>wwv_flow_api.id(3337754765984292883)
+,p_short_name=>'Page Privileges'
+,p_link=>'f?p=&APP_ID.:35:&SESSION.'
+,p_page_id=>35
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(1408562873069198315)
+,p_parent_id=>wwv_flow_api.id(3337754765984292883)
+,p_short_name=>'Rename Application'
+,p_link=>'f?p=&APP_ID.:37:&SESSION.'
+,p_page_id=>37
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(1420619853262890009)
+,p_parent_id=>wwv_flow_api.id(2552351867928663607)
+,p_short_name=>'Time Zone'
+,p_link=>'f?p=&APP_ID.:100:&SESSION.::&DEBUG.:::'
+,p_page_id=>100
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(1519416956429693468)
+,p_parent_id=>wwv_flow_api.id(3337754765984292883)
+,p_short_name=>'Username Format'
+,p_link=>'f?p=&APP_ID.:38:&SESSION.'
+,p_page_id=>38
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(1519438373152755645)
+,p_parent_id=>0
+,p_short_name=>'Add Multiple Users'
+,p_link=>'f?p=&APP_ID.:53:&SESSION.::&DEBUG.:::'
+,p_page_id=>53
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(1519452355996789115)
+,p_parent_id=>0
+,p_short_name=>'Add Multiple Users'
+,p_link=>'f?p=&APP_ID.:54:&SESSION.::&DEBUG.:::'
+,p_page_id=>54
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(1756404045665166084)
+,p_parent_id=>wwv_flow_api.id(3337754765984292883)
+,p_short_name=>'Build Options'
+,p_link=>'f?p=&APP_ID.:40:&SESSION.'
+,p_page_id=>40
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(1857750706902847015)
+,p_parent_id=>0
+,p_short_name=>'Timeline of Future Events'
+,p_link=>'f?p=&APP_ID.:12:&SESSION.::&DEBUG.:::'
+,p_page_id=>12
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(1858073441464860728)
+,p_parent_id=>0
+,p_short_name=>'Search'
+,p_link=>'f?p=&APP_ID.:2:&SESSION.::&DEBUG.:::'
+,p_page_id=>2
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(1858111741984885147)
+,p_parent_id=>0
+,p_short_name=>'Tags'
+,p_link=>'f?p=&APP_ID.:36:&SESSION.::&DEBUG.:::'
+,p_page_id=>36
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(1938779783238606501)
+,p_parent_id=>wwv_flow_api.id(3337754765984292883)
+,p_short_name=>'Calendars'
+,p_link=>'f?p=&APP_ID.:42:&SESSION.'
+,p_page_id=>42
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(1938791521041614324)
+,p_parent_id=>wwv_flow_api.id(1938779783238606501)
+,p_short_name=>'Calendar Details'
+,p_link=>'f?p=&APP_ID.:44:&SESSION.'
+,p_page_id=>44
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(2063848980256612992)
+,p_parent_id=>wwv_flow_api.id(3337754765984292883)
+,p_short_name=>'Manage Sample Data'
+,p_link=>'f?p=&APP_ID.:43:&SESSION.'
+,p_page_id=>43
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(2552351867928663607)
+,p_parent_id=>wwv_flow_api.id(3337756354960328404)
+,p_short_name=>'Preferences'
+,p_link=>'f?p=&APP_ID.:28:&SESSION.'
+,p_page_id=>28
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(3305615565065442366)
+,p_parent_id=>0
+,p_short_name=>'Help'
+,p_link=>'f?p=&FLOW_ID.:14:&SESSION.'
+,p_page_id=>14
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(3337739059606234067)
+,p_parent_id=>wwv_flow_api.id(3337754765984292883)
+,p_short_name=>'Notifications'
+,p_link=>'f?p=&APP_ID.:4:&SESSION.::&DEBUG.:::'
+,p_page_id=>4
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(3337749761909244338)
+,p_parent_id=>wwv_flow_api.id(3337739059606234067)
+,p_short_name=>'Notification'
+,p_link=>'f?p=&FLOW_ID.:25:&SESSION.'
+,p_page_id=>25
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(3337754765984292883)
+,p_parent_id=>0
+,p_short_name=>'Administration'
+,p_link=>'f?p=&APP_ID.:26:&SESSION.::&DEBUG.:::'
+,p_page_id=>26
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(3337756354960328404)
+,p_short_name=>'Home'
+,p_link=>'f?p=&FLOW_ID.:1:&SESSION.'
+,p_page_id=>1
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(3337935650938701422)
+,p_parent_id=>wwv_flow_api.id(3337946654321851666)
+,p_short_name=>'User Details'
+,p_link=>'f?p=&APP_ID.:30:&SESSION.::&DEBUG.:::'
+,p_page_id=>30
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(3337946654321851666)
+,p_parent_id=>wwv_flow_api.id(3337754765984292883)
+,p_short_name=>'Access Control List'
+,p_link=>'f?p=&APP_ID.:29:&SESSION.::&DEBUG.:::'
+,p_page_id=>29
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(3337969961135486693)
+,p_parent_id=>wwv_flow_api.id(3337756354960328404)
+,p_short_name=>'&P3_EVENT_NAME.'
+,p_link=>'f?p=&APP_ID.:3:&SESSION.::&DEBUG.:::'
+,p_page_id=>3
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(3337976950746499572)
+,p_parent_id=>wwv_flow_api.id(3337969961135486693)
+,p_short_name=>'Attachments'
+,p_link=>'f?p=&FLOW_ID.:31:&SESSION.'
+,p_page_id=>31
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(3337985357961513209)
+,p_parent_id=>wwv_flow_api.id(3337976950746499572)
+,p_short_name=>'Attachment'
+,p_link=>'f?p=&FLOW_ID.:32:&SESSION.'
+,p_page_id=>32
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(3338667747376229220)
+,p_parent_id=>wwv_flow_api.id(3337969961135486693)
+,p_short_name=>'Event Update'
+,p_link=>'f?p=&FLOW_ID.:33:&SESSION.'
+,p_page_id=>33
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(3338674856325245059)
+,p_parent_id=>wwv_flow_api.id(3337969961135486693)
+,p_short_name=>'Event Updates'
+,p_link=>'f?p=&FLOW_ID.:34:&SESSION.'
+,p_page_id=>34
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(3387186662663409607)
+,p_parent_id=>wwv_flow_api.id(3337754765984292883)
+,p_short_name=>'Application Error Log'
+,p_link=>'f?p=&APP_ID.:175:&SESSION.::&DEBUG.:::'
+,p_page_id=>175
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(3415749764676891213)
+,p_parent_id=>wwv_flow_api.id(3337754765984292883)
+,p_short_name=>'Activity Calendar'
+,p_link=>'f?p=&FLOW_ID.:9:&SESSION.'
+,p_page_id=>9
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(7516422906512897012)
+,p_parent_id=>wwv_flow_api.id(1858073441464860728)
+,p_short_name=>'Delete Multiple'
+,p_link=>'f?p=&APP_ID.:13:&SESSION.::&DEBUG.:::'
+,p_page_id=>13
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(8107647952523772515)
+,p_parent_id=>wwv_flow_api.id(3337754765984292883)
+,p_short_name=>'Send Email'
+,p_link=>'f?p=&APP_ID.:15:&SESSION.::&DEBUG.:::'
+,p_page_id=>15
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(8107667230561875414)
+,p_parent_id=>wwv_flow_api.id(3337754765984292883)
+,p_short_name=>'Groups'
+,p_link=>'f?p=&APP_ID.:16:&SESSION.::&DEBUG.:::'
+,p_page_id=>16
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(8107673344378879675)
+,p_parent_id=>wwv_flow_api.id(8107667230561875414)
+,p_short_name=>'Details'
+,p_link=>'f?p=&APP_ID.:17:&SESSION.::&DEBUG.:::'
+,p_page_id=>17
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(8108285728374975919)
+,p_parent_id=>wwv_flow_api.id(3337754765984292883)
+,p_short_name=>'Group Members'
+,p_link=>'f?p=&APP_ID.:18:&SESSION.::&DEBUG.:::'
+,p_page_id=>18
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(8108311245826038904)
+,p_parent_id=>wwv_flow_api.id(8108285728374975919)
+,p_short_name=>'Details'
+,p_link=>'f?p=&FLOW_ID.:19:&SESSION.'
+,p_page_id=>19
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(8114920331292411690)
+,p_parent_id=>wwv_flow_api.id(8108285728374975919)
+,p_short_name=>'Add Multiple Members'
+,p_link=>'f?p=&FLOW_ID.:21:&SESSION.'
+,p_page_id=>21
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(8115000646098496001)
+,p_parent_id=>wwv_flow_api.id(8108285728374975919)
+,p_short_name=>'Add Multiple Members'
+,p_link=>'f?p=&FLOW_ID.:22:&SESSION.'
+,p_page_id=>22
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(8116085837019318178)
+,p_parent_id=>wwv_flow_api.id(3337754765984292883)
+,p_short_name=>'Reporting Time Frames'
+,p_link=>'f?p=&APP_ID.:23:&SESSION.::&DEBUG.:::'
+,p_page_id=>23
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(8116098843777342388)
+,p_parent_id=>wwv_flow_api.id(8116085837019318178)
+,p_short_name=>'Details'
+,p_link=>'f?p=&FLOW_ID.:24:&SESSION.'
+,p_page_id=>24
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(8602641358940404222)
+,p_parent_id=>wwv_flow_api.id(9022046802507333687)
+,p_short_name=>'Update or Delete Affects'
+,p_link=>'f?p=&FLOW_ID.:11:&SESSION.'
+,p_page_id=>11
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(9022037993734333658)
+,p_parent_id=>wwv_flow_api.id(3337754765984292883)
+,p_option_sequence=>70
+,p_short_name=>'Event Types'
+,p_link=>'f?p=&APP_ID.:7:&SESSION.::&DEBUG.:::'
+,p_page_id=>7
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(9022040617871333671)
+,p_parent_id=>wwv_flow_api.id(9022037993734333658)
+,p_option_sequence=>80
+,p_short_name=>'Details'
+,p_link=>'f?p=&APP_ID.:8:&SESSION.::&DEBUG.:::'
+,p_page_id=>8
+);
+wwv_flow_api.create_menu_option(
+ p_id=>wwv_flow_api.id(9022046802507333687)
+,p_parent_id=>0
+,p_option_sequence=>100
+,p_short_name=>'Event'
+,p_link=>'f?p=&APP_ID.:10:&SESSION.::&DEBUG.:::'
+,p_page_id=>10
+);
+wwv_flow_api.component_end;
+end;
+/

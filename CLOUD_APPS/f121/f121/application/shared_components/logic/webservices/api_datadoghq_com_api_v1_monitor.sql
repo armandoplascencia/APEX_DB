@@ -1,0 +1,100 @@
+prompt --application/shared_components/logic/webservices/api_datadoghq_com_api_v1_monitor
+begin
+--   Manifest
+--     WEB SERVICE: api.datadoghq.com/api/v1/monitor
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>121
+,p_default_id_offset=>0
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_web_service(
+ p_id=>wwv_flow_api.id(96272580797187867)
+,p_name=>'api.datadoghq.com/api/v1/monitor'
+,p_url=>'https://app.datadoghq.com/api/v1/monitor?api_key=7d708b093319ed02d93adbb5bf694889?application_key=12a419878abd82a6790373d42576544f8d9d3650'
+,p_action=>'REST'
+,p_static_parm_04=>'GET'
+,p_static_parm_05=>'json'
+,p_static_parm_10=>'nvp'
+);
+wwv_flow_api.create_ws_operations(
+ p_id=>wwv_flow_api.id(96272749369187869)
+,p_ws_id=>wwv_flow_api.id(96272580797187867)
+,p_name=>'BASIC_AUTH'
+);
+wwv_flow_api.create_ws_parameters(
+ p_id=>wwv_flow_api.id(96273009992187870)
+,p_ws_opers_id=>wwv_flow_api.id(96272749369187869)
+,p_name=>'username'
+,p_input_or_output=>'A'
+);
+wwv_flow_api.create_ws_parameters(
+ p_id=>wwv_flow_api.id(96273355638187871)
+,p_ws_opers_id=>wwv_flow_api.id(96272749369187869)
+,p_name=>'password'
+,p_input_or_output=>'A'
+);
+wwv_flow_api.create_ws_operations(
+ p_id=>wwv_flow_api.id(96273620802187871)
+,p_ws_id=>wwv_flow_api.id(96272580797187867)
+,p_name=>'doREST'
+);
+wwv_flow_api.create_ws_parameters(
+ p_id=>wwv_flow_api.id(96273908656187872)
+,p_ws_opers_id=>wwv_flow_api.id(96273620802187871)
+,p_name=>'DD-API-KEY'
+,p_input_or_output=>'H'
+,p_type_is_xsd=>'Y'
+);
+wwv_flow_api.create_ws_parameters(
+ p_id=>wwv_flow_api.id(96274295284187872)
+,p_ws_opers_id=>wwv_flow_api.id(96273620802187871)
+,p_name=>'DD-APPLICATION-KEY'
+,p_input_or_output=>'H'
+,p_type_is_xsd=>'Y'
+);
+wwv_flow_api.create_ws_parameters(
+ p_id=>wwv_flow_api.id(96274556681187873)
+,p_ws_opers_id=>wwv_flow_api.id(96273620802187871)
+,p_name=>'Content-Type'
+,p_input_or_output=>'H'
+,p_type_is_xsd=>'Y'
+);
+wwv_flow_api.create_ws_parameters(
+ p_id=>wwv_flow_api.id(96275714424187874)
+,p_ws_opers_id=>wwv_flow_api.id(96273620802187871)
+,p_name=>'json'
+,p_input_or_output=>'O'
+,p_parm_type=>'json'
+,p_type_is_xsd=>'N'
+);
+wwv_flow_api.create_ws_parameters(
+ p_id=>wwv_flow_api.id(96283943214261780)
+,p_ws_opers_id=>wwv_flow_api.id(96273620802187871)
+,p_name=>'DD-API-KEY'
+,p_input_or_output=>'I'
+,p_parm_type=>'string'
+,p_type_is_xsd=>'Y'
+);
+wwv_flow_api.create_ws_parameters(
+ p_id=>wwv_flow_api.id(96284231718261780)
+,p_ws_opers_id=>wwv_flow_api.id(96273620802187871)
+,p_name=>'DD-APPLICATION-KEY'
+,p_input_or_output=>'I'
+,p_parm_type=>'string'
+,p_type_is_xsd=>'Y'
+);
+wwv_flow_api.create_ws_parameters(
+ p_id=>wwv_flow_api.id(96284537676261780)
+,p_ws_opers_id=>wwv_flow_api.id(96273620802187871)
+,p_name=>'Content-Type'
+,p_input_or_output=>'I'
+,p_parm_type=>'string'
+,p_type_is_xsd=>'Y'
+);
+wwv_flow_api.component_end;
+end;
+/

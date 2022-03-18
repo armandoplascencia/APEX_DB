@@ -1,0 +1,986 @@
+prompt --application/shared_components/data_profiles/github_repositories
+begin
+--   Manifest
+--     DATA PROFILE: Github Repositories
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>123
+,p_default_id_offset=>111717178695017138
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_data_profile(
+ p_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'Github Repositories'
+,p_format=>'JSON'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833468291173763246)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'ID'
+,p_sequence=>1
+,p_data_type=>'NUMBER'
+,p_has_time_zone=>false
+,p_selector=>'id'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833468686198763249)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'NAME'
+,p_sequence=>2
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'name'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833469083859763260)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'FULL_NAME'
+,p_sequence=>3
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'full_name'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833469443383763293)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'LOGIN'
+,p_sequence=>4
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'owner.login'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833469755271763304)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'ID_2'
+,p_sequence=>5
+,p_data_type=>'NUMBER'
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'owner.id'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833470226489763305)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'AVATAR_URL'
+,p_sequence=>6
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'owner.avatar_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833470579800763305)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'GRAVATAR_ID'
+,p_sequence=>7
+,p_data_type=>'VARCHAR2'
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'owner.gravatar_id'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833470952901763306)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'URL'
+,p_sequence=>8
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'owner.url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833471398591763306)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'HTML_URL'
+,p_sequence=>9
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'owner.html_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833471805926763306)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'FOLLOWERS_URL'
+,p_sequence=>10
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'owner.followers_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833472211041763306)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'FOLLOWING_URL'
+,p_sequence=>11
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'owner.following_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833472560743763307)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'GISTS_URL'
+,p_sequence=>12
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'owner.gists_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833473011893763307)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'STARRED_URL'
+,p_sequence=>13
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'owner.starred_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833473412465763307)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'SUBSCRIPTIONS_URL'
+,p_sequence=>14
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'owner.subscriptions_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833473784025763307)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'ORGANIZATIONS_URL'
+,p_sequence=>15
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'owner.organizations_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833474169100763308)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'REPOS_URL'
+,p_sequence=>16
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'owner.repos_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833474583379763308)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'EVENTS_URL'
+,p_sequence=>17
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'owner.events_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833474996417763309)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'RECEIVED_EVENTS_URL'
+,p_sequence=>18
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'owner.received_events_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833475435692763309)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'TYPE'
+,p_sequence=>19
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'owner.type'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833475816884763309)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'SITE_ADMIN'
+,p_sequence=>20
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'owner.site_admin'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833476196171763310)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'PRIVATE'
+,p_sequence=>21
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'private'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833476588603763310)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'HTML_URL_2'
+,p_sequence=>22
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'html_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833477009173763311)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'DESCRIPTION'
+,p_sequence=>23
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'description'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833477428230763311)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'FORK'
+,p_sequence=>24
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'fork'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833477835347763311)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'URL_2'
+,p_sequence=>25
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833478170661763312)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'FORKS_URL'
+,p_sequence=>26
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'forks_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833478621858763312)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'KEYS_URL'
+,p_sequence=>27
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'keys_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833479030397763313)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'COLLABORATORS_URL'
+,p_sequence=>28
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'collaborators_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833479370627763313)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'TEAMS_URL'
+,p_sequence=>29
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'teams_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833479824693763313)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'HOOKS_URL'
+,p_sequence=>30
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'hooks_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833480167929763318)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'ISSUE_EVENTS_URL'
+,p_sequence=>31
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'issue_events_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833480617674763318)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'EVENTS_URL_2'
+,p_sequence=>32
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'events_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833480986016763319)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'ASSIGNEES_URL'
+,p_sequence=>33
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'assignees_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833481375306763319)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'BRANCHES_URL'
+,p_sequence=>34
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'branches_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833481825395763320)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'TAGS_URL'
+,p_sequence=>35
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'tags_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833482167479763320)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'BLOBS_URL'
+,p_sequence=>36
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'blobs_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833482615574763320)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'GIT_TAGS_URL'
+,p_sequence=>37
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'git_tags_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833482994477763321)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'GIT_REFS_URL'
+,p_sequence=>38
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'git_refs_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833483424543763321)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'TREES_URL'
+,p_sequence=>39
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'trees_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833483817636763322)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'STATUSES_URL'
+,p_sequence=>40
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'statuses_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833484188298763322)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'LANGUAGES_URL'
+,p_sequence=>41
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'languages_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833484590536763322)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'STARGAZERS_URL'
+,p_sequence=>42
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'stargazers_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833485007377763322)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'CONTRIBUTORS_URL'
+,p_sequence=>43
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'contributors_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833485438210763323)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'SUBSCRIBERS_URL'
+,p_sequence=>44
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'subscribers_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833485762609763323)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'SUBSCRIPTION_URL'
+,p_sequence=>45
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'subscription_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833486218155763323)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'COMMITS_URL'
+,p_sequence=>46
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'commits_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833486554921763323)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'GIT_COMMITS_URL'
+,p_sequence=>47
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'git_commits_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833486990687763323)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'COMMENTS_URL'
+,p_sequence=>48
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'comments_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833487406940763324)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'ISSUE_COMMENT_URL'
+,p_sequence=>49
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'issue_comment_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833487793582763324)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'CONTENTS_URL'
+,p_sequence=>50
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'contents_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833488182560763325)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'COMPARE_URL'
+,p_sequence=>51
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'compare_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833488621050763325)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'MERGES_URL'
+,p_sequence=>52
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'merges_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833489020788763325)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'ARCHIVE_URL'
+,p_sequence=>53
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'archive_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833489422481763326)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'DOWNLOADS_URL'
+,p_sequence=>54
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'downloads_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833489807776763326)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'ISSUES_URL'
+,p_sequence=>55
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'issues_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833490173367763326)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'PULLS_URL'
+,p_sequence=>56
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'pulls_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833490621802763326)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'MILESTONES_URL'
+,p_sequence=>57
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'milestones_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833490995941763327)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'NOTIFICATIONS_URL'
+,p_sequence=>58
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'notifications_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833491419658763327)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'LABELS_URL'
+,p_sequence=>59
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'labels_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833491758034763327)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'RELEASES_URL'
+,p_sequence=>60
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'releases_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833492157610763327)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'DEPLOYMENTS_URL'
+,p_sequence=>61
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'deployments_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833492612350763327)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'CREATED_AT'
+,p_sequence=>62
+,p_data_type=>'TIMESTAMP WITH TIME ZONE'
+,p_format_mask=>'YYYY-MM-DD"T"HH24:MI:SSTZR'
+,p_has_time_zone=>true
+,p_selector=>'created_at'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833492999944763330)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'UPDATED_AT'
+,p_sequence=>63
+,p_data_type=>'TIMESTAMP WITH TIME ZONE'
+,p_format_mask=>'YYYY-MM-DD"T"HH24:MI:SSTZR'
+,p_has_time_zone=>true
+,p_selector=>'updated_at'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833493359144763330)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'PUSHED_AT'
+,p_sequence=>64
+,p_data_type=>'TIMESTAMP WITH TIME ZONE'
+,p_format_mask=>'YYYY-MM-DD"T"HH24:MI:SSTZR'
+,p_has_time_zone=>true
+,p_is_hidden=>true
+,p_selector=>'pushed_at'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833493769515763330)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'GIT_URL'
+,p_sequence=>65
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'git_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833494210174763330)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'SSH_URL'
+,p_sequence=>66
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'ssh_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833494636124763331)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'CLONE_URL'
+,p_sequence=>67
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'clone_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833494964016763331)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'SVN_URL'
+,p_sequence=>68
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'svn_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833495382308763331)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'HOMEPAGE'
+,p_sequence=>69
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'homepage'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833495823872763331)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'SIZE_'
+,p_sequence=>70
+,p_data_type=>'NUMBER'
+,p_has_time_zone=>false
+,p_selector=>'size'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833496197121763331)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'STARGAZERS_COUNT'
+,p_sequence=>71
+,p_data_type=>'NUMBER'
+,p_has_time_zone=>false
+,p_selector=>'stargazers_count'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833496625874763332)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'WATCHERS_COUNT'
+,p_sequence=>72
+,p_data_type=>'NUMBER'
+,p_has_time_zone=>false
+,p_selector=>'watchers_count'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833497034300763332)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'LANGUAGE'
+,p_sequence=>73
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'language'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833497391800763332)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'HAS_ISSUES'
+,p_sequence=>74
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'has_issues'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833497795492763332)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'HAS_PROJECTS'
+,p_sequence=>75
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'has_projects'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833498214654763332)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'HAS_DOWNLOADS'
+,p_sequence=>76
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'has_downloads'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833498610633763333)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'HAS_WIKI'
+,p_sequence=>77
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'has_wiki'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833499041982763333)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'HAS_PAGES'
+,p_sequence=>78
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'has_pages'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833499354770763333)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'FORKS_COUNT'
+,p_sequence=>79
+,p_data_type=>'NUMBER'
+,p_has_time_zone=>false
+,p_selector=>'forks_count'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833499791138763333)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'MIRROR_URL'
+,p_sequence=>80
+,p_data_type=>'VARCHAR2'
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'mirror_url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833500188686763333)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'ARCHIVED'
+,p_sequence=>81
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'archived'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833500626967763334)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'OPEN_ISSUES_COUNT'
+,p_sequence=>82
+,p_data_type=>'NUMBER'
+,p_has_time_zone=>false
+,p_selector=>'open_issues_count'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833501031369763334)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'KEY'
+,p_sequence=>83
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'license.key'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833501407328763334)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'NAME_2'
+,p_sequence=>84
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'license.name'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833501758939763334)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'SPDX_ID'
+,p_sequence=>85
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'license.spdx_id'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833502199572763334)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'URL_3'
+,p_sequence=>86
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'license.url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833502569068763335)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'FORKS'
+,p_sequence=>87
+,p_data_type=>'NUMBER'
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'forks'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833502990305763335)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'OPEN_ISSUES'
+,p_sequence=>88
+,p_data_type=>'NUMBER'
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'open_issues'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833503385557763335)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'WATCHERS'
+,p_sequence=>89
+,p_data_type=>'NUMBER'
+,p_has_time_zone=>false
+,p_selector=>'watchers'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833503783806763335)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'DEFAULT_BRANCH'
+,p_sequence=>90
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_is_hidden=>true
+,p_selector=>'default_branch'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(833504222724763335)
+,p_data_profile_id=>wwv_flow_api.id(833468088871763239)
+,p_name=>'LICENSE'
+,p_sequence=>91
+,p_data_type=>'VARCHAR2'
+,p_has_time_zone=>false
+,p_selector=>'license'
+);
+wwv_flow_api.component_end;
+end;
+/

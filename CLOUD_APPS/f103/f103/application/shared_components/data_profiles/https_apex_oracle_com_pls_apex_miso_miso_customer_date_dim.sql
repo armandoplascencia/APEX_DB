@@ -1,0 +1,222 @@
+prompt --application/shared_components/data_profiles/https_apex_oracle_com_pls_apex_miso_miso_customer_date_dim
+begin
+--   Manifest
+--     DATA PROFILE: https://apex.oracle.com/pls/apex/miso/miso_customer_date_dim/
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>103
+,p_default_id_offset=>0
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_data_profile(
+ p_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'https://apex.oracle.com/pls/apex/miso/miso_customer_date_dim/'
+,p_format=>'JSON'
+,p_row_selector=>'items'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21485742156230411)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'TIME_ID'
+,p_sequence=>1
+,p_column_type=>'DATA'
+,p_data_type=>'DATE'
+,p_has_time_zone=>true
+,p_selector=>'time_id'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21486060903230411)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'DAY_NAME'
+,p_sequence=>2
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'day_name'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21486380391230411)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'DAY_NUMBER_IN_WEEK'
+,p_sequence=>3
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'day_number_in_week'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21486643011230411)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'DAY_NUMBER_IN_MONTH'
+,p_sequence=>4
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'day_number_in_month'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21486984958230411)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'DAY_NUMBER_IN_YEAR'
+,p_sequence=>5
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'day_number_in_year'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21487228003230412)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'CALENDAR_WEEK_NUMBER'
+,p_sequence=>6
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'calendar_week_number'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21487557376230412)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'WEEK_ENDING_DATE'
+,p_sequence=>7
+,p_column_type=>'DATA'
+,p_data_type=>'DATE'
+,p_has_time_zone=>true
+,p_selector=>'week_ending_date'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21487825557230412)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'CALENDAR_MONTH_NUMBER'
+,p_sequence=>8
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'calendar_month_number'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21488132734230412)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'DAYS_IN_CAL_MONTH'
+,p_sequence=>9
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'days_in_cal_month'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21488477906230412)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'END_OF_CAL_MONTH'
+,p_sequence=>10
+,p_column_type=>'DATA'
+,p_data_type=>'DATE'
+,p_has_time_zone=>true
+,p_selector=>'end_of_cal_month'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21488745281230412)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'CALENDAR_MONTH_NAME'
+,p_sequence=>11
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'calendar_month_name'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21489055140230412)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'DAYS_IN_CAL_QUARTER'
+,p_sequence=>12
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_has_time_zone=>false
+,p_selector=>'days_in_cal_quarter'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21489355162230412)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'BEG_OF_CAL_QUARTER'
+,p_sequence=>13
+,p_column_type=>'DATA'
+,p_data_type=>'DATE'
+,p_has_time_zone=>true
+,p_selector=>'beg_of_cal_quarter'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21489699084230413)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'END_OF_CAL_QUARTER'
+,p_sequence=>14
+,p_column_type=>'DATA'
+,p_data_type=>'DATE'
+,p_has_time_zone=>true
+,p_selector=>'end_of_cal_quarter'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21489967229230413)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'CALENDAR_QUARTER_NUMBER'
+,p_sequence=>15
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'calendar_quarter_number'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21490216807230413)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'CALENDAR_YEAR'
+,p_sequence=>16
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_has_time_zone=>false
+,p_selector=>'calendar_year'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21490520690230413)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'DAYS_IN_CAL_YEAR'
+,p_sequence=>17
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_has_time_zone=>false
+,p_selector=>'days_in_cal_year'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21490861988230413)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'BEG_OF_CAL_YEAR'
+,p_sequence=>18
+,p_column_type=>'DATA'
+,p_data_type=>'DATE'
+,p_has_time_zone=>true
+,p_selector=>'beg_of_cal_year'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(21491193237230413)
+,p_data_profile_id=>wwv_flow_api.id(21485599892230408)
+,p_name=>'END_OF_CAL_YEAR'
+,p_sequence=>19
+,p_column_type=>'DATA'
+,p_data_type=>'DATE'
+,p_has_time_zone=>true
+,p_selector=>'end_of_cal_year'
+);
+wwv_flow_api.component_end;
+end;
+/

@@ -1,0 +1,336 @@
+prompt --application/shared_components/data_loads/ticket_metrics
+begin
+--   Manifest
+--     DATA LOAD: ticket_metrics
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>121
+,p_default_id_offset=>0
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_data_profile(
+ p_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'ticket_metrics'
+,p_format=>'JSON'
+,p_encoding=>'utf-8'
+,p_row_selector=>'ticket_metrics'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95694474082768816)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'ID'
+,p_sequence=>1
+,p_is_primary_key=>true
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector=>'id'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95694798727768816)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'URL'
+,p_sequence=>2
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>255
+,p_selector=>'url'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95695016528768817)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'REOPENS'
+,p_sequence=>3
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector=>'reopens'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95695344235768817)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'REPLIES'
+,p_sequence=>4
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector=>'replies'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95695627941768817)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'SOLVED_AT'
+,p_sequence=>5
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_format_mask=>'YYYY"-"MM"-"DD"T"HH24":"MI:SSTZR'
+,p_has_time_zone=>true
+,p_selector=>'solved_at'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95695909458768817)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'TICKET_ID'
+,p_sequence=>6
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector=>'ticket_id'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95696275815768818)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'CREATED_AT'
+,p_sequence=>7
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_format_mask=>'YYYY"-"MM"-"DD"T"HH24":"MI:SSTZR'
+,p_has_time_zone=>true
+,p_selector=>'created_at'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95696536221768818)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'UPDATED_AT'
+,p_sequence=>8
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_format_mask=>'YYYY"-"MM"-"DD"T"HH24":"MI:SSTZR'
+,p_has_time_zone=>true
+,p_selector=>'updated_at'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95696872923768818)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'ASSIGNED_AT'
+,p_sequence=>9
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_format_mask=>'YYYY"-"MM"-"DD"T"HH24":"MI:SSTZR'
+,p_has_time_zone=>true
+,p_selector=>'assigned_at'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95697199009768818)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'GROUP_STATIONS'
+,p_sequence=>10
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector=>'group_stations'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95697446638768819)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'ASSIGNEE_STATIONS'
+,p_sequence=>11
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector=>'assignee_stations'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95697766852768819)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'STATUS_UPDATED_AT'
+,p_sequence=>12
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_format_mask=>'YYYY"-"MM"-"DD"T"HH24":"MI:SSTZR'
+,p_has_time_zone=>true
+,p_selector=>'status_updated_at'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95698022976768819)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'ASSIGNEE_UPDATED_AT'
+,p_sequence=>13
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_format_mask=>'YYYY"-"MM"-"DD"T"HH24":"MI:SSTZR'
+,p_has_time_zone=>true
+,p_selector=>'assignee_updated_at'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95698354149768819)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'REQUESTER_UPDATED_AT'
+,p_sequence=>14
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_format_mask=>'YYYY"-"MM"-"DD"T"HH24":"MI:SSTZR'
+,p_has_time_zone=>true
+,p_selector=>'requester_updated_at'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95698678413768819)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'INITIALLY_ASSIGNED_AT'
+,p_sequence=>15
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_format_mask=>'YYYY"-"MM"-"DD"T"HH24":"MI:SSTZR'
+,p_has_time_zone=>true
+,p_selector=>'initially_assigned_at'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95698958470768819)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'BUSINESS'
+,p_sequence=>16
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector=>'reply_time_in_minutes.business'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95699268661768819)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'CALENDAR'
+,p_sequence=>17
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector=>'reply_time_in_minutes.calendar'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95699530632768820)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'LATEST_COMMENT_ADDED_AT'
+,p_sequence=>18
+,p_column_type=>'DATA'
+,p_data_type=>'VARCHAR2'
+,p_max_length=>4000
+,p_format_mask=>'YYYY"-"MM"-"DD"T"HH24":"MI:SSTZR'
+,p_has_time_zone=>true
+,p_selector=>'latest_comment_added_at'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95699831048768820)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'BUSINESS2'
+,p_sequence=>19
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector=>'on_hold_time_in_minutes.business'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95700155532768820)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'CALENDAR2'
+,p_sequence=>20
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector=>'on_hold_time_in_minutes.calendar'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95700433789768820)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'BUSINESS3'
+,p_sequence=>21
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector=>'agent_wait_time_in_minutes.business'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95700779455768821)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'CALENDAR3'
+,p_sequence=>22
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector=>'agent_wait_time_in_minutes.calendar'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95701070725768821)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'BUSINESS4'
+,p_sequence=>23
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector=>'requester_wait_time_in_minutes.business'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95701369177768821)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'CALENDAR4'
+,p_sequence=>24
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector=>'requester_wait_time_in_minutes.calendar'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95701693936768821)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'BUSINESS5'
+,p_sequence=>25
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector=>'full_resolution_time_in_minutes.business'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95701936433768821)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'CALENDAR5'
+,p_sequence=>26
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector=>'full_resolution_time_in_minutes.calendar'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95702238982768821)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'BUSINESS6'
+,p_sequence=>27
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector=>'first_resolution_time_in_minutes.business'
+);
+wwv_flow_api.create_data_profile_col(
+ p_id=>wwv_flow_api.id(95702525180768822)
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_name=>'CALENDAR6'
+,p_sequence=>28
+,p_column_type=>'DATA'
+,p_data_type=>'NUMBER'
+,p_decimal_char=>'.'
+,p_selector=>'first_resolution_time_in_minutes.calendar'
+);
+wwv_flow_api.create_load_table(
+ p_id=>wwv_flow_api.id(95702700472768822)
+,p_name=>'ticket_metrics'
+,p_static_id=>'ticket_metrics'
+,p_target_type=>'TABLE'
+,p_owner=>'MISO'
+,p_table_name=>'ZENDESK_TICKET_METRICS'
+,p_data_profile_id=>wwv_flow_api.id(95694106423768790)
+,p_loading_method=>'MERGE'
+,p_commit_interval=>200
+,p_error_handling=>'LOG_ROWS'
+,p_error_collection_name=>'ERR_ZENDESK_TICKET_METRICS'
+,p_skip_validation=>'N'
+);
+wwv_flow_api.component_end;
+end;
+/

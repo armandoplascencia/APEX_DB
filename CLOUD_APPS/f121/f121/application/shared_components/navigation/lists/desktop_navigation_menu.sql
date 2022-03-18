@@ -1,0 +1,154 @@
+prompt --application/shared_components/navigation/lists/desktop_navigation_menu
+begin
+--   Manifest
+--     LIST: Desktop Navigation Menu
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>121
+,p_default_id_offset=>0
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_list(
+ p_id=>wwv_flow_api.id(95006681710962303)
+,p_name=>'Desktop Navigation Menu'
+,p_list_status=>'PUBLIC'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(95168735799962501)
+,p_list_item_display_sequence=>10
+,p_list_item_link_text=>'zendesk_fascet'
+,p_list_item_link_target=>'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-table-search'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(95226817172962931)
+,p_list_item_display_sequence=>20
+,p_list_item_link_text=>'Home'
+,p_list_item_link_target=>'f?p=&APP_ID.:3:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-home'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(95228410158962937)
+,p_list_item_display_sequence=>30
+,p_list_item_link_text=>'Dashboard'
+,p_list_item_link_target=>'f?p=&APP_ID.:4:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-dashboard'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(95239507048962949)
+,p_list_item_display_sequence=>40
+,p_list_item_link_text=>'Zendesk 01012022 000000 Search'
+,p_list_item_link_target=>'f?p=&APP_ID.:5:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-table-search'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(95261565047962973)
+,p_list_item_display_sequence=>50
+,p_list_item_link_text=>'Zendesk 01012022 000000 Report'
+,p_list_item_link_target=>'f?p=&APP_ID.:6:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(95317183553963016)
+,p_list_item_display_sequence=>60
+,p_list_item_link_text=>'Calendar'
+,p_list_item_link_target=>'f?p=&APP_ID.:8:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-calendar-o'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(95703194435771725)
+,p_list_item_display_sequence=>70
+,p_list_item_link_text=>'ticket_metrics json loader'
+,p_list_item_link_target=>'f?p=&APP_ID.:11:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'11'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(95943637290198078)
+,p_list_item_display_sequence=>80
+,p_list_item_link_text=>'zendesk_ticket_metrics'
+,p_list_item_link_target=>'f?p=&APP_ID.:13:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'13'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(96167743710126383)
+,p_list_item_display_sequence=>90
+,p_list_item_link_text=>'DATADOG_MONITOR'
+,p_list_item_link_target=>'f?p=&APP_ID.:10:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'10,17,18,19,20'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(96356639109917199)
+,p_list_item_display_sequence=>110
+,p_list_item_link_text=>'dd_monitor_kfc_62373289'
+,p_list_item_link_target=>'f?p=&APP_ID.:17:&APP_SESSION.::&DEBUG.:::'
+,p_parent_list_item_id=>wwv_flow_api.id(96167743710126383)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'17'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(96376957539921248)
+,p_list_item_display_sequence=>120
+,p_list_item_link_text=>'dd_monitor_shoreline_62372755'
+,p_list_item_link_target=>'f?p=&APP_ID.:18:&APP_SESSION.::&DEBUG.:::'
+,p_parent_list_item_id=>wwv_flow_api.id(96167743710126383)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'18'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(96397347597925107)
+,p_list_item_display_sequence=>130
+,p_list_item_link_text=>'dd_monitor_wc42_62374516'
+,p_list_item_link_target=>'f?p=&APP_ID.:19:&APP_SESSION.::&DEBUG.:::'
+,p_parent_list_item_id=>wwv_flow_api.id(96167743710126383)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'19'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(96417649550928027)
+,p_list_item_display_sequence=>140
+,p_list_item_link_text=>'dd_monitor_westlake_62372859'
+,p_list_item_link_target=>'f?p=&APP_ID.:20:&APP_SESSION.::&DEBUG.:::'
+,p_parent_list_item_id=>wwv_flow_api.id(96167743710126383)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'20'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(96193245238384277)
+,p_list_item_display_sequence=>100
+,p_list_item_link_text=>'DATADOG__HOSTS'
+,p_list_item_link_target=>'f?p=&APP_ID.:14:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'14'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(97218790398110620)
+,p_list_item_display_sequence=>150
+,p_list_item_link_text=>'DD_METRIC_PY'
+,p_list_item_link_target=>'f?p=&APP_ID.:15:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'15'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(95573285939965114)
+,p_list_item_display_sequence=>10000
+,p_list_item_link_text=>'Administration'
+,p_list_item_link_target=>'f?p=&APP_ID.:10000:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-user-wrench'
+,p_security_scheme=>wwv_flow_api.id(95156890196962453)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.component_end;
+end;
+/

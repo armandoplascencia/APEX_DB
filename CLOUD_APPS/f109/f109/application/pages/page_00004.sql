@@ -1,0 +1,155 @@
+prompt --application/pages/page_00004
+begin
+--   Manifest
+--     PAGE: 00004
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>109
+,p_default_id_offset=>0
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_page(
+ p_id=>4
+,p_user_interface_id=>wwv_flow_api.id(64824702076113970)
+,p_name=>'CR_CAMERA'
+,p_alias=>'CR-CAMERA'
+,p_step_title=>'CR_CAMERA'
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_last_updated_by=>'MISO'
+,p_last_upd_yyyymmddhh24miss=>'20211124012239'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(69136102296627402)
+,p_plug_name=>'CR_CAMERA'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_api.id(64728038565113896)
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'BODY'
+,p_query_type=>'SQL'
+,p_plug_source=>'select * from CR_CAMERA'
+,p_plug_source_type=>'NATIVE_IR'
+,p_prn_page_header=>'CR_CAMERA'
+);
+wwv_flow_api.create_worksheet(
+ p_id=>wwv_flow_api.id(69136211740627402)
+,p_name=>'CR_CAMERA'
+,p_max_row_count_message=>'The maximum row count for this report is #MAX_ROW_COUNT# rows.  Please apply a filter to reduce the number of records in your query.'
+,p_no_data_found_message=>'No data found.'
+,p_pagination_type=>'ROWS_X_TO_Y'
+,p_pagination_display_pos=>'BOTTOM_RIGHT'
+,p_report_list_mode=>'TABS'
+,p_lazy_loading=>false
+,p_show_detail_link=>'N'
+,p_download_formats=>'CSV:HTML:EMAIL:XLSX:PDF:RTF'
+,p_owner=>'APLASCENCIA'
+,p_internal_uid=>69136211740627402
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(69136645204627402)
+,p_db_column_name=>'ID_1'
+,p_display_order=>1
+,p_column_identifier=>'A'
+,p_column_label=>'Id 1'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(69137096338627402)
+,p_db_column_name=>'ID'
+,p_display_order=>2
+,p_column_identifier=>'B'
+,p_column_label=>'Id'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(69137430221627403)
+,p_db_column_name=>'NAME'
+,p_display_order=>3
+,p_column_identifier=>'C'
+,p_column_label=>'Name'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(69137851625627403)
+,p_db_column_name=>'SERIAL'
+,p_display_order=>4
+,p_column_identifier=>'D'
+,p_column_label=>'Serial'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(69138283355627403)
+,p_db_column_name=>'CREATED'
+,p_display_order=>5
+,p_column_identifier=>'E'
+,p_column_label=>'Created'
+,p_column_type=>'DATE'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(69138693442627403)
+,p_db_column_name=>'DESCRIPTION'
+,p_display_order=>6
+,p_column_identifier=>'F'
+,p_column_label=>'Description'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(69139032421627404)
+,p_db_column_name=>'RESTAURANT_ID'
+,p_display_order=>7
+,p_column_identifier=>'G'
+,p_column_label=>'Restaurant Id'
+,p_column_type=>'NUMBER'
+,p_heading_alignment=>'RIGHT'
+,p_column_alignment=>'RIGHT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(69139489951627404)
+,p_db_column_name=>'EXTRINSIC_YAML'
+,p_display_order=>8
+,p_column_identifier=>'H'
+,p_column_label=>'Extrinsic Yaml'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(69139888108627404)
+,p_db_column_name=>'INTRINSIC_YAML'
+,p_display_order=>9
+,p_column_identifier=>'I'
+,p_column_label=>'Intrinsic Yaml'
+,p_column_type=>'STRING'
+,p_heading_alignment=>'LEFT'
+,p_tz_dependent=>'N'
+);
+wwv_flow_api.create_worksheet_rpt(
+ p_id=>wwv_flow_api.id(69176812332670629)
+,p_application_user=>'APXWS_DEFAULT'
+,p_report_seq=>10
+,p_report_alias=>'691769'
+,p_status=>'PUBLIC'
+,p_is_default=>'Y'
+,p_report_columns=>'ID_1:ID:NAME:SERIAL:CREATED:DESCRIPTION:RESTAURANT_ID:EXTRINSIC_YAML:INTRINSIC_YAML'
+);
+wwv_flow_api.component_end;
+end;
+/

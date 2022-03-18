@@ -1,0 +1,43 @@
+prompt --application/shared_components/user_interface/templates/region/modal_region
+begin
+--   Manifest
+--     REGION TEMPLATE: MODAL_REGION
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>127
+,p_default_id_offset=>99999615750817235
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_plug_template(
+ p_id=>wwv_flow_api.id(108700029101896457)
+,p_layout=>'TABLE'
+,p_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<section class="uRegion uWhiteRegion uModalRegion uAlertRegion #REGION_CSS_CLASSES# clearfix" id="#REGION_STATIC_ID#" #REGION_ATTRIBUTES#>',
+'  <div class="uRegionHeading">',
+'    <h1>#TITLE#</h1>',
+'  </div>',
+'  <div class="uRegionContent clearfix">',
+'    #BODY#',
+'  </div>',
+'    <span class="uButtonContainer">',
+'      #CLOSE##PREVIOUS##NEXT##DELETE##EDIT##CHANGE##CREATE##CREATE2##EXPAND##COPY##HELP#',
+'    </span>',
+'</section>'))
+,p_page_plug_template_name=>'Modal Region'
+,p_internal_name=>'MODAL_REGION'
+,p_plug_table_bgcolor=>'#ffffff'
+,p_theme_id=>26
+,p_theme_class_id=>9
+,p_plug_heading_bgcolor=>'#ffffff'
+,p_plug_font_size=>'-1'
+,p_default_label_alignment=>'RIGHT'
+,p_default_field_alignment=>'LEFT'
+,p_translate_this_template=>'N'
+,p_template_comment=>'Red Theme'
+);
+wwv_flow_api.component_end;
+end;
+/

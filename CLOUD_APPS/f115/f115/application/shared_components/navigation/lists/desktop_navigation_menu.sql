@@ -1,0 +1,200 @@
+prompt --application/shared_components/navigation/lists/desktop_navigation_menu
+begin
+--   Manifest
+--     LIST: Desktop Navigation Menu
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>115
+,p_default_id_offset=>358200981570066140
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_list(
+ p_id=>wwv_flow_api.id(188090354825147796)
+,p_name=>'Desktop Navigation Menu'
+,p_list_status=>'PUBLIC'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(188238380986148008)
+,p_list_item_display_sequence=>10
+,p_list_item_link_text=>'Home'
+,p_list_item_link_target=>'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:'
+,p_list_item_icon=>'fa-home'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(188378682989674561)
+,p_list_item_display_sequence=>20
+,p_list_item_link_text=>'Create Template'
+,p_list_item_link_target=>'f?p=&APP_ID.:20:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-file-o'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(188379016925677270)
+,p_list_item_display_sequence=>30
+,p_list_item_link_text=>'Send Template'
+,p_list_item_link_target=>'f?p=&APP_ID.:30:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-send-o'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(188379335584680006)
+,p_list_item_display_sequence=>40
+,p_list_item_link_text=>'Upload Template'
+,p_list_item_link_target=>'f?p=&APP_ID.:40:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-upload'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(188379583958682046)
+,p_list_item_display_sequence=>50
+,p_list_item_link_text=>'Check Data'
+,p_list_item_link_target=>'f?p=&APP_ID.:50:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-clipboard-check'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(182967694827850935)
+,p_list_item_display_sequence=>60
+,p_list_item_link_text=>'Export Data'
+,p_list_item_link_target=>'f?p=&APP_ID.:60:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-download'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'60'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(188335508914271277)
+,p_list_item_display_sequence=>1000
+,p_list_item_link_text=>'Administration'
+,p_list_item_icon=>'fa-database-edit'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(196690719149085574)
+,p_list_item_display_sequence=>1010
+,p_list_item_link_text=>'Feedback'
+,p_list_item_link_target=>'f?p=&APP_ID.:10000:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-user-wrench'
+,p_parent_list_item_id=>wwv_flow_api.id(188335508914271277)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'10000'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(196697102062097591)
+,p_list_item_display_sequence=>1020
+,p_list_item_link_text=>'Manage Data'
+,p_list_item_icon=>'fa-database-edit'
+,p_parent_list_item_id=>wwv_flow_api.id(188335508914271277)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(196659654495063676)
+,p_list_item_display_sequence=>1030
+,p_list_item_link_text=>'Dropdown'
+,p_list_item_link_target=>'f?p=&APP_ID.:1011:&SESSION.::&DEBUG.::::'
+,p_parent_list_item_id=>wwv_flow_api.id(196697102062097591)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(188336456118275847)
+,p_list_item_display_sequence=>1040
+,p_list_item_link_text=>'File'
+,p_list_item_link_target=>'f?p=&APP_ID.:1002:&SESSION.::&DEBUG.::::'
+,p_parent_list_item_id=>wwv_flow_api.id(196697102062097591)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(188336822383277245)
+,p_list_item_display_sequence=>1050
+,p_list_item_link_text=>'Header'
+,p_list_item_link_target=>'f?p=&APP_ID.:1003:&SESSION.::&DEBUG.::::'
+,p_parent_list_item_id=>wwv_flow_api.id(196697102062097591)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(188337053803279476)
+,p_list_item_display_sequence=>1060
+,p_list_item_link_text=>'Person'
+,p_list_item_link_target=>'f?p=&APP_ID.:1005:&SESSION.::&DEBUG.::::'
+,p_parent_list_item_id=>wwv_flow_api.id(196697102062097591)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(188338217928285334)
+,p_list_item_display_sequence=>1070
+,p_list_item_link_text=>'Status'
+,p_list_item_link_target=>'f?p=&APP_ID.:1007:&SESSION.::&DEBUG.::::'
+,p_parent_list_item_id=>wwv_flow_api.id(196697102062097591)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(188337880071284129)
+,p_list_item_display_sequence=>1080
+,p_list_item_link_text=>'Shippingstatus'
+,p_list_item_link_target=>'f?p=&APP_ID.:1006:&SESSION.::&DEBUG.::::'
+,p_parent_list_item_id=>wwv_flow_api.id(196697102062097591)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(188338483498286499)
+,p_list_item_display_sequence=>1090
+,p_list_item_link_text=>'Templates'
+,p_list_item_link_target=>'f?p=&APP_ID.:1008:&SESSION.::&DEBUG.::::'
+,p_parent_list_item_id=>wwv_flow_api.id(196697102062097591)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(150293997906985862)
+,p_list_item_display_sequence=>1095
+,p_list_item_link_text=>'Template-Automations'
+,p_list_item_link_target=>'f?p=&APP_ID.:1014:&SESSION.::&DEBUG.::::'
+,p_parent_list_item_id=>wwv_flow_api.id(196697102062097591)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'1014'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(188339666882293069)
+,p_list_item_display_sequence=>1100
+,p_list_item_link_text=>'Template-Header'
+,p_list_item_link_target=>'f?p=&APP_ID.:1010:&SESSION.::&DEBUG.::::'
+,p_parent_list_item_id=>wwv_flow_api.id(196697102062097591)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(202003597345641776)
+,p_list_item_display_sequence=>1110
+,p_list_item_link_text=>'Template-Header-Group'
+,p_list_item_link_target=>'f?p=&APP_ID.:1012:&SESSION.::&DEBUG.::::'
+,p_parent_list_item_id=>wwv_flow_api.id(196697102062097591)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(203136805856826177)
+,p_list_item_display_sequence=>1115
+,p_list_item_link_text=>'Template-Header-Validations'
+,p_list_item_link_target=>'f?p=&APP_ID.:1013:&SESSION.::&DEBUG.::::'
+,p_parent_list_item_id=>wwv_flow_api.id(196697102062097591)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(188338835967287584)
+,p_list_item_display_sequence=>1120
+,p_list_item_link_text=>'Template-Import-Data'
+,p_list_item_link_target=>'f?p=&APP_ID.:1009:&SESSION.::&DEBUG.::::'
+,p_parent_list_item_id=>wwv_flow_api.id(196697102062097591)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(188337384266281806)
+,p_list_item_display_sequence=>1130
+,p_list_item_link_text=>'Template-Import-Status'
+,p_list_item_link_target=>'f?p=&APP_ID.:1004:&SESSION.::&DEBUG.::::'
+,p_parent_list_item_id=>wwv_flow_api.id(196697102062097591)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.component_end;
+end;
+/

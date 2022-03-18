@@ -1,0 +1,82 @@
+prompt --application/shared_components/user_interface/lovs/timezones
+begin
+--   Manifest
+--     TIMEZONES
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.7'
+,p_default_workspace_id=>9008156634332785
+,p_default_application_id=>126
+,p_default_id_offset=>101651461840938715
+,p_default_owner=>'MISO'
+);
+wwv_flow_api.create_list_of_values(
+ p_id=>wwv_flow_api.id(8061045222225425642)
+,p_lov_name=>'TIMEZONES'
+,p_lov_query=>'.'||wwv_flow_api.id(8061045222225425642)||'.'
+,p_location=>'STATIC'
+);
+wwv_flow_api.create_static_lov_data(
+ p_id=>wwv_flow_api.id(8061045537158425651)
+,p_lov_disp_sequence=>1
+,p_lov_disp_value=>'US/Eastern'
+,p_lov_return_value=>'US/Eastern'
+);
+wwv_flow_api.create_static_lov_data(
+ p_id=>wwv_flow_api.id(8061045723177425654)
+,p_lov_disp_sequence=>2
+,p_lov_disp_value=>'US/East-Indiana'
+,p_lov_return_value=>'US/East-Indiana'
+);
+wwv_flow_api.create_static_lov_data(
+ p_id=>wwv_flow_api.id(8061539134176217141)
+,p_lov_disp_sequence=>3
+,p_lov_disp_value=>'US/Michigan'
+,p_lov_return_value=>'US/Michigan'
+);
+wwv_flow_api.create_static_lov_data(
+ p_id=>wwv_flow_api.id(8061045943262425654)
+,p_lov_disp_sequence=>4
+,p_lov_disp_value=>'US/Central'
+,p_lov_return_value=>'US/Central'
+);
+wwv_flow_api.create_static_lov_data(
+ p_id=>wwv_flow_api.id(8061046142919425654)
+,p_lov_disp_sequence=>5
+,p_lov_disp_value=>'US/Mountain'
+,p_lov_return_value=>'US/Mountain'
+);
+wwv_flow_api.create_static_lov_data(
+ p_id=>wwv_flow_api.id(8061539337639218208)
+,p_lov_disp_sequence=>6
+,p_lov_disp_value=>'US/Arizona'
+,p_lov_return_value=>'US/Arizona'
+);
+wwv_flow_api.create_static_lov_data(
+ p_id=>wwv_flow_api.id(8061532128588187195)
+,p_lov_disp_sequence=>7
+,p_lov_disp_value=>'US/Pacific'
+,p_lov_return_value=>'US/Pacific'
+);
+wwv_flow_api.create_static_lov_data(
+ p_id=>wwv_flow_api.id(8061539540409218952)
+,p_lov_disp_sequence=>8
+,p_lov_disp_value=>'US/Alaska'
+,p_lov_return_value=>'US/Alaska'
+);
+wwv_flow_api.create_static_lov_data(
+ p_id=>wwv_flow_api.id(8061542247681221108)
+,p_lov_disp_sequence=>9
+,p_lov_disp_value=>'US/Hawaii'
+,p_lov_return_value=>'US/Hawaii'
+);
+wwv_flow_api.create_static_lov_data(
+ p_id=>wwv_flow_api.id(8204260240065814544)
+,p_lov_disp_sequence=>10
+,p_lov_disp_value=>'Asia/Calcutta'
+,p_lov_return_value=>'Asia/Calcutta'
+);
+wwv_flow_api.component_end;
+end;
+/
