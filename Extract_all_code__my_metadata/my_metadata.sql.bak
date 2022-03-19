@@ -1,3 +1,4 @@
+D:\AAP_LAPTOP_2017\tellydbo\tellydbo_frameworks
 --select * from dba_sys_privs where grantee = 'MISO';
 
 grant create database link        to MISO;
@@ -986,6 +987,16 @@ end;
    
 
 
+
+
+
+
+
+
+
+
+
+
 CREATE OR REPLACE PROCEDURE push_profiles_verify_props2 (v_schema_name in varchar2, v_output in out varchar2)
     AUTHID CURRENT_USER
 as
@@ -1895,6 +1906,7 @@ exec MISO.get_schema_md4('ADMIN','~SEGMENT_ATTRIBUTES~~STORAGE~~TABLESPACE~');
 exec MISO.get_schema_md4('APEX_210100','~SEGMENT_ATTRIBUTES~~STORAGE~~TABLESPACE~');
 exec MISO.get_schema_md4('AQDEMOADMIN','~SEGMENT_ATTRIBUTES~~STORAGE~~TABLESPACE~');
 exec MISO.get_schema_md4('MISO','~SEGMENT_ATTRIBUTES~~STORAGE~~TABLESPACE~');
+exec MISO.get_schema_md4('SSB','~SEGMENT_ATTRIBUTES~~STORAGE~~TABLESPACE~');
 
 select count(*), owner, otype from MISO.my_metadata --where owner in ('SMSDBO','SMSAPP')  
 group by owner, otype order by owner, otype
