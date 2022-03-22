@@ -1,0 +1,333 @@
+C:\brink\Pos>type  Miso_GET_ALL_ORDERS.py
+from zeep import Client
+from zeep.transports import Transport
+import requests
+import sys
+
+from datetime import datetime
+
+def display_modifiers(modifiers, depth = 1):
+    print('\t' * (depth) + 'Modifiers:')
+    #Loop through collection of OrderItemModifier objects returned
+    for mod in modifiers.OrderItemModifier:
+        print('\t' * (depth + 1) + 'Id: ' + str(mod.Id))
+        print('\t' * (depth + 1) + 'ItemId: ' + str(mod.ItemId))
+        print('\t' * (depth + 1) + 'ModifierCodeId: ' + str(mod.ModifierCodeId))
+        print('\t' * (depth + 1) + 'ModifierGroupId: ' + str(mod.ModifierGroupId))
+        print('\t' * (depth + 1) + 'Price: ' + str(mod.Price))
+        if (mod.Modifiers != None):
+            display_modifiers(mod.Modifiers, (depth + 2))
+        else:
+            print('\t' * (depth + 1) + 'Modifiers: None')
+
+#passed_in_args = len(sys.argv)
+#passed_in_date = sys.argv[1]
+#print("passed in date=", passed_in_date)
+
+accessToken  = 'uj2TW2YVC0KxklRwBAfihg=='
+locationToken = 'uvRXKyTT2E2u4h4xBY6CkA=='
+
+#Include tokens in HTTP Web Request Headers
+session = requests.Session()
+session.headers.update({'AccessToken': accessToken, 'LocationToken': locationToken})
+transport = Transport(session=session)
+
+#Connect to Sales2 service client
+client = Client('https://api-apiint.brinkpos.net/Sales2.svc?Wsdl', transport=transport)
+service = client.create_service(
+    '{http://tempuri.org/}BasicHttpBinding_ISalesWebService2',
+    'https://api-apiint.brinkpos.net/sales2.svc'
+)
+
+#Prepare the dynamic type for GetOrdersRequest
+req_type = client.get_type('ns1:GetOrdersRequest')
+datetime_offset_type = client.get_type('ns3:DateTimeOffset')
+
+#Include parameters in request body
+businessdate = datetime(2022, 01, 20)
+modified_date = datetime_offset_type(DateTime=businessdate, OffsetMinutes=0)
+req_data = req_type(BusinessDate=businessdate,ExcludeOpenOrders=False,PriceRollUp='RollupandDetails', ModifiedTime=modified_date)
+
+count = 1
+
+try:
+    #Make GetOrders call
+    res = service.GetOrders(req_data)
+
+    # If call is successful
+    if(res.ResultCode == 0):
+        #Loop through collection of Order objects returned
+        for order in res.Orders.Order:
+            print('Order #' + str(count))
+            print('---------------------------')
+            print('BusinessDate: ' + str(order.BusinessDate))
+            print('ClosedTime: ')
+            print('\tDateTime: ' + str(order.ClosedTime.DateTime))
+            print('\tOffsetMinutes: ' + str(order.ClosedTime.OffsetMinutes))
+            print('CustomerId: ' + str(order.CustomerId))
+            print('EmployeeId: ' + str(order.EmployeeId))
+            if(order.Entries != None):
+                print('Entries:')
+                #Loop through collection of OrderItem objects returned
+                for entry in order.Entries.OrderEntry:
+                    if(entry.Modifiers != None):
+                        display_modifiers(entry.Modifiers)
+                    else:
+                        print('\tModifiers: None')
+            else:
+                print('Entries: None')
+            print('FirstSendTime:')
+            print('\tDateTime: ' + str(order.FirstSendTime.DateTime))
+            print('\tOffsetMinutes: ' + str(order.FirstSendTime.OffsetMinutes))
+            print('Id: ' + str(order.Id))
+            print('IsClosed: ' + str(order.IsClosed))
+            print('ModifiedTime: ')
+            print('\tDateTime: ' + str(order.ModifiedTime.DateTime))
+            print('\tOffsetMinutes: ' + str(order.ModifiedTime.OffsetMinutes))
+            print('Name: ' + str(order.Name))
+            print('OpenedTime:')
+            print('\tDateTime: ' + str(order.OpenedTime.DateTime))
+            print('\tOffsetMinutes: ' + str(order.OpenedTime.OffsetMinutes))
+            if(order.Payments != None):
+                print('Payments:')
+                #Loop through collection of OrderPayment objects returned
+                for payment in order.Payments.OrderPayment:
+                    print('\tId: ' + str(payment.Id))
+                    print('\tAmount: ' + str(payment.Amount))
+                    print('\tBusinessDate: ' + str(payment.BusinessDate))
+                    print('\t-----------------------')
+            else:
+                print('Payments: None')
+            print('PickupTime: ' + str(order.PickupTime))
+            print('Total: ' + str(order.Total))
+            print('---------------------------')
+            count += 1
+        print('End')
+    else:
+        print('Error Code: ' + str(res.ResultCode))
+        print('Message: ' + res.Message)
+except Exception as e:
+    print(e)
+
+
+
+C:\brink\Pos>python Miso_GET_ALL_ORDERS.py
+No handlers could be found for logger "zeep.wsdl.bindings.soap"
+Order #1
+---------------------------
+BusinessDate: 2022-01-20 00:00:00
+ClosedTime:
+        DateTime: 2022-01-24 05:06:16.371380+00:00
+        OffsetMinutes: 0
+CustomerId: None
+EmployeeId: 640325925
+Entries: None
+FirstSendTime:
+        DateTime: None
+        OffsetMinutes: None
+Id: 8771730409476
+IsClosed: True
+ModifiedTime:
+        DateTime: 2022-01-24 05:06:16.371380+00:00
+        OffsetMinutes: -360
+Name: # 4
+OpenedTime:
+        DateTime: 2022-01-20 23:06:15+00:00
+        OffsetMinutes: 0
+Payments: None
+PickupTime: None
+Total: 0.0
+---------------------------
+Order #2
+---------------------------
+BusinessDate: 2022-01-20 00:00:00
+ClosedTime:
+        DateTime: 2022-01-24 05:06:16.369066+00:00
+        OffsetMinutes: 0
+CustomerId: None
+EmployeeId: 640325925
+Entries:
+        Modifiers: None
+        Modifiers: None
+FirstSendTime:
+        DateTime: 2022-01-20 21:51:18+00:00
+        OffsetMinutes: 0
+Id: 8771730409473
+IsClosed: True
+ModifiedTime:
+        DateTime: 2022-01-24 05:06:16.369066+00:00
+        OffsetMinutes: -360
+Name: # 1
+OpenedTime:
+        DateTime: 2022-01-20 21:51:00+00:00
+        OffsetMinutes: 0
+Payments:
+        Id: 3
+        Amount: 27.9
+        BusinessDate: 2022-01-20 00:00:00
+        -----------------------
+PickupTime: None
+Total: 27.9
+---------------------------
+Order #3
+---------------------------
+BusinessDate: 2022-01-20 00:00:00
+ClosedTime:
+        DateTime: 2022-01-20 23:06:15.371871+00:00
+        OffsetMinutes: 0
+CustomerId: None
+EmployeeId: 640325925
+Entries:
+        Modifiers: None
+        Modifiers: None
+        Modifiers: None
+FirstSendTime:
+        DateTime: 2022-01-20 23:05:54.206323+00:00
+        OffsetMinutes: 0
+Id: 8771730409475
+IsClosed: True
+ModifiedTime:
+        DateTime: 2022-01-20 23:06:15.371871+00:00
+        OffsetMinutes: -360
+Name: # 3
+OpenedTime:
+        DateTime: 2022-01-20 23:04:33.736318+00:00
+        OffsetMinutes: 0
+Payments:
+        Id: 4
+        Amount: 12.89
+        BusinessDate: 2022-01-20 00:00:00
+        -----------------------
+PickupTime: None
+Total: 12.89
+---------------------------
+Order #4
+---------------------------
+BusinessDate: 2022-01-20 00:00:00
+ClosedTime:
+        DateTime: 2022-01-20 22:24:42.960260+00:00
+        OffsetMinutes: 0
+CustomerId: None
+EmployeeId: 640325925
+Entries:
+        Modifiers: None
+        Modifiers: None
+        Modifiers: None
+        Modifiers: None
+        Modifiers: None
+        Modifiers: None
+        Modifiers: None
+        Modifiers: None
+FirstSendTime:
+        DateTime: 2022-01-20 22:23:34.998459+00:00
+        OffsetMinutes: 0
+Id: 8771730409474
+IsClosed: True
+ModifiedTime:
+        DateTime: 2022-01-20 22:24:42.960260+00:00
+        OffsetMinutes: -360
+Name: # 2
+OpenedTime:
+        DateTime: 2022-01-20 22:21:41.779348+00:00
+        OffsetMinutes: 0
+Payments:
+        Id: 9
+        Amount: 22.65
+        BusinessDate: 2022-01-20 00:00:00
+        -----------------------
+PickupTime: None
+Total: 22.65
+---------------------------
+End
+
+============================================================================================================================
+C:\brink\Pos> python miso_get_day_of_Week.py
+No handlers could be found for logger "zeep.wsdl.bindings.soap"
+Current Business Date: 2022-03-21 00:00:00
+
+C:\brink\Pos>cat miso_get_Day_of_Week.py
+'cat' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\brink\Pos>type miso_get_day_of_Week.py
+from zeep import Client
+from zeep.transports import Transport
+import requests
+import sys
+
+accessToken  = 'uj2TW2YVC0KxklRwBAfihg=='
+locationToken = 'uvRXKyTT2E2u4h4xBY6CkA=='
+
+#Include tokens in HTTP Web Request Headers
+session = requests.Session()
+session.headers.update({'AccessToken':accessToken,'LocationToken':locationToken})
+transport = Transport(session=session)
+
+client = Client('https://api-apiint.brinkpos.net/Sales2.svc?Wsdl', transport=transport)
+service = client.create_service(
+    '{http://tempuri.org/}BasicHttpBinding_ISalesWebService2',
+    'https://api-apiint.brinkpos.net/sales2.svc')
+
+try:
+    #Make GetCurrentBusinessDate call
+    res = service.GetCurrentBusinessDate()
+
+    #If call is successful
+    if (res.ResultCode == 0):
+        print("Current Business Date: {}".format(res.BusinessDate))
+    else:
+        print("Error Code: " + res.ResultCode)
+        print("Message: " + res.Message)
+except Exception as e:
+    print(e)
+
+C:\brink\Pos>
+C:\brink\Pos> python miso_get_day_of_Week.py
+No handlers could be found for logger "zeep.wsdl.bindings.soap"
+Current Business Date: 2022-03-21 00:00:00
+
+========================================================================================
+C:\brink\Pos>
+
+C:\brink\Pos>python Miso__Ordering__GetMasterTerminalStatus.py
+No handlers could be found for logger "zeep.wsdl.bindings.soap"
+Status: 0
+Master Terminal is Offline.
+
+C:\brink\Pos>type Miso__Ordering__GetMasterTerminalStatus.py
+from zeep import Client
+from zeep.transports import Transport
+import requests
+
+accessToken  = 'uj2TW2YVC0KxklRwBAfihg=='
+locationToken = 'uvRXKyTT2E2u4h4xBY6CkA=='
+
+#Include tokens in HTTP Web Request Headers
+session = requests.Session()
+session.headers.update({'AccessToken':accessToken,'LocationToken':locationToken})
+transport = Transport(session=session)
+
+#Connect to Ordering service client
+client = Client(wsdl='https://api-apiint.brinkpos.net/Ordering.svc?Wsdl', transport=transport)
+service = client.create_service(
+    '{http://tempuri.org/}BasicHttpBinding_IOrderingWebService',
+    'https://api-apiint.brinkpos.net/Ordering.svc'
+)
+
+try:
+    #Make GetMasterTerminalStatus call
+    res = service.GetMasterTerminalStatus()
+
+    #If call is successful
+    if(res.ResultCode == 0):
+        print("Status: {}".format(res.Status))
+        if(res.Status == 1):
+            print("Master Terminal is Online.")
+        else:
+            print("Master Terminal is Offline.")
+    else:
+        print("Error Code: " + str(res.ResultCode))
+        print("Message: " + res.Message)
+except Exception as e:
+    print(e)
+
