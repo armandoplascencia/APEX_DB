@@ -1,0 +1,244 @@
+Quick test tells me zeep is installed ok, 
+cd C:\brink\Pos
+type zeep_test_chad.py
+
+C:\brink\Pos>type zeep_test_chad.py
+import zeep
+
+wsdl = 'http://www.soapclient.com/xml/soapresponder.wsdl'
+client = zeep.Client(wsdl=wsdl)
+print(client.service.Method1('Zeep', 'is cool'))
+
+C:\brink\Pos>python  zeep_test_chad.py
+Your input parameters are Zeep and is cool
+
+I need your help looking at the below code.
+The support team said the code compiled with no problems.
+I want the support team to take the below code and run that test again.
+Here is the version of software that I was told to setup.
+
+1) I added to path C:\Users\rmand\AppData\Roaming\Python\Python39\Scripts
+C:\brink\Pos>python --version
+Python 3.9.5
+
+C:\brink\Pos>set PATH
+Path=C:\Program Files\Python39\Scripts\;C:\Program Files\Python39\;C:\Users\rmand\AppData\Roaming\Python\Python39\Scripts;C:\Users\rmand\Downloads\WINDOWS.X64_213000_db_home\bin;C:\app\rmand\product\21c\dbhomeXE\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;D:\APEX\WINDOWS.X64_193000_db_home\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\IDM Computer Solutions\UltraEdit;C:\Program Files\IDM Computer Solutions\UltraCompare;C:\Program Files\PostgreSQL\14;C:\Program Files\PostgreSQL\14\bin;C:\Program Files\PuTTY\;C:\Program Files\Amazon\AWSCLIV2\;C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\ProgramData\chocolatey\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\rmand\AppData\Local\Programs\Python\Python38-32\Scripts\;C:\Users\rmand\AppData\Local\Programs\Python\Python38-32\;C:\Users\rmand\AppData\Local\Microsoft\WindowsApps;C:\Users\rmand\Desktop\cockroachdb\cockroach-v20.1.0-rc.2.windows-6.2-amd64;D:\APEX\sqldeveloper-19.4.0.354.1759-x64\sqldeveloper\jdk\jre\bin;D:\APEX\WINDOWS.X64_193000_db_home\perl\bin
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+
+===================================================================================
+
+C:\brink\Pos>pip install zeep
+Requirement already satisfied: zeep in c:\users\rmand\appdata\roaming\python\python39\site-packages (4.1.0)
+Requirement already satisfied: requests-toolbelt>=0.7.1 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep) (0.9.1)
+Requirement already satisfied: lxml>=4.6.0 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep) (4.7.1)
+Requirement already satisfied: isodate>=0.5.4 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep) (0.6.1)
+Requirement already satisfied: platformdirs>=1.4.0 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep) (2.4.1)
+Requirement already satisfied: cached-property>=1.3.0 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep) (1.5.2)
+Requirement already satisfied: pytz in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep) (2021.3)
+Requirement already satisfied: attrs>=17.2.0 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep) (21.4.0)
+Requirement already satisfied: requests>=2.7.0 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep) (2.27.1)
+Requirement already satisfied: requests-file>=1.5.1 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep) (1.5.1)
+Requirement already satisfied: six in c:\users\rmand\appdata\roaming\python\python39\site-packages (from isodate>=0.5.4->zeep) (1.16.0)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from requests>=2.7.0->zeep) (1.26.8)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from requests>=2.7.0->zeep) (3.3)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from requests>=2.7.0->zeep) (2021.10.8)
+Requirement already satisfied: charset-normalizer~=2.0.0 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from requests>=2.7.0->zeep) (2.0.10)
+
+
+==================================================================================
+C:\brink\zeep_4_1_0> pip install --upgrade pip
+C:\brink\Pos>pip install --upgrade pip
+Requirement already satisfied: pip in c:\users\rmand\appdata\roaming\python\python39\site-packages (21.3.1)
+
+====================================================================================
+C:\brink\Pos>pip install wheel
+Requirement already satisfied: wheel in c:\users\rmand\appdata\roaming\python\python39\site-packages (0.37.1)
+
+========================================================================================
+
+C:\brink\Pos> pip install zeep[xmlsec]
+Requirement already satisfied: zeep[xmlsec] in c:\users\rmand\appdata\roaming\python\python39\site-packages (4.1.0)
+Requirement already satisfied: cached-property>=1.3.0 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep[xmlsec]) (1.5.2)
+Requirement already satisfied: requests-toolbelt>=0.7.1 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep[xmlsec]) (0.9.1)
+Requirement already satisfied: attrs>=17.2.0 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep[xmlsec]) (21.4.0)
+Requirement already satisfied: pytz in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep[xmlsec]) (2021.3)
+Requirement already satisfied: requests-file>=1.5.1 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep[xmlsec]) (1.5.1)
+Requirement already satisfied: requests>=2.7.0 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep[xmlsec]) (2.27.1)
+Requirement already satisfied: lxml>=4.6.0 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep[xmlsec]) (4.7.1)
+Requirement already satisfied: isodate>=0.5.4 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep[xmlsec]) (0.6.1)
+Requirement already satisfied: platformdirs>=1.4.0 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep[xmlsec]) (2.4.1)
+Requirement already satisfied: xmlsec>=0.6.1 in c:\program files\python39\lib\site-packages (from zeep[xmlsec]) (1.3.12)
+Requirement already satisfied: six in c:\users\rmand\appdata\roaming\python\python39\site-packages (from isodate>=0.5.4->zeep[xmlsec]) (1.16.0)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from requests>=2.7.0->zeep[xmlsec]) (1.26.8)
+Requirement already satisfied: charset-normalizer~=2.0.0 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from requests>=2.7.0->zeep[xmlsec]) (2.0.10)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from requests>=2.7.0->zeep[xmlsec]) (2021.10.8)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from requests>=2.7.0->zeep[xmlsec]) (3.3)
+
+C:\brink\Pos>
+
+===========================================================================================
+C:\brink\zeep_4_1_0>pip install zeep[async]
+Requirement already satisfied: zeep[async] in c:\users\rmand\appdata\roaming\python\python39\site-packages (4.1.0)
+Requirement already satisfied: requests>=2.7.0 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep[async]) (2.27.1)
+Requirement already satisfied: requests-toolbelt>=0.7.1 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep[async]) (0.9.1)
+Requirement already satisfied: platformdirs>=1.4.0 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep[async]) (2.4.1)
+Requirement already satisfied: isodate>=0.5.4 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep[async]) (0.6.1)
+Requirement already satisfied: pytz in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep[async]) (2021.3)
+Requirement already satisfied: attrs>=17.2.0 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep[async]) (21.4.0)
+Requirement already satisfied: lxml>=4.6.0 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep[async]) (4.7.1)
+Requirement already satisfied: requests-file>=1.5.1 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep[async]) (1.5.1)
+Requirement already satisfied: cached-property>=1.3.0 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from zeep[async]) (1.5.2)
+Requirement already satisfied: httpx in c:\program files\python39\lib\site-packages (from zeep[async]) (0.21.3)
+Requirement already satisfied: six in c:\users\rmand\appdata\roaming\python\python39\site-packages (from isodate>=0.5.4->zeep[async]) (1.16.0)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from requests>=2.7.0->zeep[async]) (3.3)
+Requirement already satisfied: charset-normalizer~=2.0.0 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from requests>=2.7.0->zeep[async]) (2.0.10)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from requests>=2.7.0->zeep[async]) (2021.10.8)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in c:\users\rmand\appdata\roaming\python\python39\site-packages (from requests>=2.7.0->zeep[async]) (1.26.8)
+Requirement already satisfied: rfc3986[idna2008]<2,>=1.3 in c:\program files\python39\lib\site-packages (from httpx->zeep[async]) (1.5.0)
+Requirement already satisfied: httpcore<0.15.0,>=0.14.0 in c:\program files\python39\lib\site-packages (from httpx->zeep[async]) (0.14.5)
+Requirement already satisfied: sniffio in c:\program files\python39\lib\site-packages (from httpx->zeep[async]) (1.2.0)
+Requirement already satisfied: h11<0.13,>=0.11 in c:\program files\python39\lib\site-packages (from httpcore<0.15.0,>=0.14.0->httpx->zeep[async]) (0.12.0)
+Requirement already satisfied: anyio==3.* in c:\program files\python39\lib\site-packages (from httpcore<0.15.0,>=0.14.0->httpx->zeep[async]) (3.5.0)
+
+=================================================================================================
+
+C:\brink\Pos>pip install lxml
+Requirement already satisfied: lxml in c:\users\rmand\appdata\roaming\python\python39\site-packages (4.7.1)
+
+==================================================================================================
+
+
+C:\brink\Pos>python  CHAD_GetOrder.py
+zeep.transports: Loading remote data from: https://api-apiint.brinkpos.net/Ordering.svc?Wsdl
+zeep.transports: Loading remote data from: http://api-apiint.brinkpos.net/Ordering.svc?wsdl=wsdl0
+Traceback (most recent call last):
+  File "C:\Users\rmand\AppData\Roaming\Python\Python39\site-packages\zeep\loader.py", line 50, in parse_xml
+    elementtree = fromstring(content, parser=parser, base_url=base_url)
+  File "src\lxml\etree.pyx", line 3252, in lxml.etree.fromstring
+  File "src\lxml\parser.pxi", line 1912, in lxml.etree._parseMemoryDocument
+  File "src\lxml\parser.pxi", line 1800, in lxml.etree._parseDoc
+  File "src\lxml\parser.pxi", line 1141, in lxml.etree._BaseParser._parseDoc
+  File "src\lxml\parser.pxi", line 615, in lxml.etree._ParserContext._handleParseResultDoc
+  File "src\lxml\parser.pxi", line 725, in lxml.etree._handleParseResult
+  File "src\lxml\parser.pxi", line 654, in lxml.etree._raiseParseError
+  File "https://api-apiint.brinkpos.net/Ordering.svc?Wsdl", line 1
+lxml.etree.XMLSyntaxError: AttValue: " or ' expected, line 1, column 40
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\brink\Pos\CHAD_GetOrder.py", line 44, in <module>
+    client = Client('https://api-apiint.brinkpos.net/Ordering.svc?Wsdl',transport=transport)
+  File "C:\Users\rmand\AppData\Roaming\Python\Python39\site-packages\zeep\client.py", line 73, in __init__
+    self.wsdl = Document(wsdl, self.transport, settings=self.settings)
+  File "C:\Users\rmand\AppData\Roaming\Python\Python39\site-packages\zeep\wsdl\wsdl.py", line 92, in __init__
+    self.load(location)
+  File "C:\Users\rmand\AppData\Roaming\Python\Python39\site-packages\zeep\wsdl\wsdl.py", line 97, in load
+    root_definitions = Definition(self, document, self.location)
+  File "C:\Users\rmand\AppData\Roaming\Python\Python39\site-packages\zeep\wsdl\wsdl.py", line 193, in __init__
+    self._load(doc)
+  File "C:\Users\rmand\AppData\Roaming\Python\Python39\site-packages\zeep\wsdl\wsdl.py", line 196, in _load
+    self.parse_imports(doc)
+  File "C:\Users\rmand\AppData\Roaming\Python\Python39\site-packages\zeep\wsdl\wsdl.py", line 288, in parse_imports
+    document = self.wsdl._get_xml_document(location)
+  File "C:\Users\rmand\AppData\Roaming\Python\Python39\site-packages\zeep\wsdl\wsdl.py", line 155, in _get_xml_document
+    return load_external(
+  File "C:\Users\rmand\AppData\Roaming\Python\Python39\site-packages\zeep\loader.py", line 88, in load_external
+    return parse_xml(content, transport, base_url, settings=settings)
+  File "C:\Users\rmand\AppData\Roaming\Python\Python39\site-packages\zeep\loader.py", line 66, in parse_xml
+    raise XMLSyntaxError(
+zeep.exceptions.XMLSyntaxError: Invalid XML content received (AttValue: " or ' expected, line 1, column 40)
+
+==================================================================================================
+
+C:\brink\Pos>type  CHAD_GetOrder.py
+from zeep import Client
+from zeep.transports import Transport
+import requests
+
+###############################################################################################
+# added as debugger following https://docs.python-zeep.org/en/latest/transport.html#debugging
+import logging.config
+# added as debugger following https://docs.python-zeep.org/en/latest/transport.html#debugging
+logging.config.dictConfig({
+    'version': 1,
+    'formatters': {
+        'verbose': {
+            'format': '%(name)s: %(message)s'
+        }
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'zeep.transports': {
+            'level': 'DEBUG',
+            'propagate': True,
+            'handlers': ['console'],
+        },
+    }
+})
+# added as debugger following https://docs.python-zeep.org/en/latest/transport.html#debugging
+###############################################################################################
+
+accessToken   = 'uj2TW2YVC0KxklRwBAfihg=='
+locationToken = 'uvRXKyTT2E2u4h4xBY6CkA=='
+
+#Include tokens in HTTP Web Request Headers
+session = requests.Session()
+session.headers.update({'AccessToken':accessToken,'LocationToken':locationToken})
+transport = Transport(session=session)
+
+#Connect to Ordering service client
+#client = Client('https://api-apiint.brinkpos.net/Ordering.svc?Wsdl',transport=transport)
+client = Client('https://api-apiint.brinkpos.net/Ordering.svc?Wsdl',transport=transport)
+
+#service = client.create_service('{http://www.brinksoftware.com/webservices/ordering/20140219}BasicHttpBinding_IOrderingWebService',
+#    'https://{api-devapi01.brinkpos.net/ordering.svc')
+
+#service = client.create_service( '{http://tempuri.org/}BasicHttpBinding_IOrderingWebService', 'https://api-apiint.brinkpos.net/Ordering.svc')
+#service = client.create_service( '{https://tempuri.org/}BasicHttpBinding_IOrderingWebService', 'https://api-apiint.brinkpos.net/Ordering.svc?Wsdl')
+service = client.create_service( '{https://tempuri.org/}BasicHttpBinding_IOrderingWebService', 'https://api-apiint.brinkpos.net/Ordering.svc?Wsdl')
+
+
+#Include OrderId - type Int64 parameter in request body
+#int orderId = {OrderID}
+orderId = 12345678901
+reqType = client.get_type('ns1:GetOrderRequest')
+req = reqType(OrderId=orderId)
+
+try:
+    #Make GetOrder call
+    res = service.GetOrder(req)
+
+    #If call is successful
+    if(res.ResultCode == 0):
+        order = res.Order
+        print('Balance: ' + str(order.Balance))
+        if(order.Entries != None):
+            print('Entries:')
+            #Loop through collection of OrderEntry objects returned
+            for entry in order.Entries.OrderEntry:
+                print('\tDescription: ' + str(entry.Description))
+                print('\tId: ' + str(entry.Id))
+                print('\tItemId: ' + str(entry.ItemId))
+                print('\tPrice: ' + str(entry.Price))
+                print('\t------------')
+        print('Id: ' + str(order.Id))
+        print('Name: ' + str(order.Name))
+        print('Subtotal: ' + str(order.Subtotal))
+        print('Tax: ' + str(order.Tax))
+        print('Total: ' + str(order.Total))
+        print('---------------------------')
+        print('End')
+    else:
+        print("Error Code: " + str(res.ResultCode))
+        print("Message: " + res.Message)
+except Exception as e:
+    print(e)
+
+C:\brink\Pos>
