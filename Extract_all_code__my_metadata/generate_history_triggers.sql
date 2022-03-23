@@ -332,5 +332,24 @@ alter trigger au_dw_media_up_down_files enable
 /
 
 
+with abc as (
+select 
+'begin
+    eba_mpa.gen_history_trigger (p_prefix => ''||<ABREV>'', p_source_table => ''<TBL_NAME>'' );
+end;' thisisql 
+from dual ) 
+select replace(abc.thisisql,'<TBL_NAME>',table_name ) this_real_Sql 
+from abc, user_Tables where table_name like 'NK_%'
 
 
+
+
+
+begin eba_mpa.gen_history_trigger (p_prefix => '||<ABREV>', p_source_table => 'NK_DEVICE_TYPES' ); end;
+begin eba_mpa.gen_history_trigger (p_prefix => '||<ABREV>', p_source_table => 'NK_NETWORK_DEVICES' ); end;
+begin eba_mpa.gen_history_trigger (p_prefix => '||<ABREV>', p_source_table => 'NK_SITES' ); end;
+begin eba_mpa.gen_history_trigger (p_prefix => '||<ABREV>', p_source_table => 'NK_SITE_CONFIG' ); end;
+begin eba_mpa.gen_history_trigger (p_prefix => '||<ABREV>', p_source_table => 'NK_SITE_CONFIG_ERR$' ); end;
+begin eba_mpa.gen_history_trigger (p_prefix => '||<ABREV>', p_source_table => 'NK_SUPPORTED_DEVICES' ); end;
+begin eba_mpa.gen_history_trigger (p_prefix => '||<ABREV>', p_source_table => 'NK_VERSIONS' ); end;
+begin eba_mpa.gen_history_trigger (p_prefix => '||<ABREV>', p_source_table => 'NK_VERSIONS_ERR$' ); end;
