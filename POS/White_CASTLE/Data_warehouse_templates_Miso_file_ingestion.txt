@@ -1,0 +1,96 @@
+
+dwm_format_lookup
+    id                 number  /pk
+    format_name        varchar2(4000) [ name of the source system , db, flatfile, xls, restapi .. ]
+    desc               varchar2(4000) [ the format of the data ]
+ 
+dwm_source_name          [ source of what feeds dw ] 
+    id                 number  /pk
+    name               varchar2(4000) [ name of the source system , db, flatfile, xls, restapi .. ]
+    frequency          varchar2(400)  [ how freqently the data is available ]
+    format_lookup_id   /references dwm_format_lookup
+    source_mask        varchar2(4000) [ how the data is formatted mask info] 
+    isundermaintenance varchar2(100)  [ is system up  ] 
+    data_as_of         date           [ scheduled date the system next refreshed ] 
+    last_refreshed     date           [ actual refresh ]
+    time_between_refreshs_min number      [ mins before next job ] 
+  
+dwm_source_objects    [ Every source can have multiple objects from which data can be pulled]
+    id                 number  /pk
+    object_owner       varchar2(4000)
+    object_name        varchar2(4000)
+    object_type        varchar2(4000)
+    object_desc        varchar2(4000)
+    source_name_id     /references dwm_source_name
+
+dwm_source_sub_objects    [ Every source can have multiple objects from which data can be pulled]
+    id                 number  /pk
+    parent_object_id   /references dwm_source_objects
+     child_object_id   /references dwm_source_objects
+    level_info         number
+
+
+dwm_objects_refresh_transactions [ availability This is a transaction level information for all the sources objects and provide necessary information needed to ] 
+    id                 number  /pk
+    source_objects_id  /references dwm_source_objects
+    info1              varchar2(4000) -- start an ETL job. The DataAsOf field notification flag provide information to the ETL job to be executed. The record count acts as control information to check if the 
+    info2              varchar2(4000) -- row from source matches what has been loaded. This could help in validating the load count. So this table has the latest row for each source object. Anytime a new row is inserted, the previous row will be moved to the history table.
+
+etl_job_setup [This is center table in this model. The purpose of this table is to have the information about every ETL job that exists in data warehouse ] 
+    id                 number  /pk
+    name               varchar2(4000) [ name of the ETL job ]
+    desc               varchar2(4000) [ description about the job ] 
+    freq               varchar2(4000) [ frequency of the job ] 
+    sched_time         varchar2(4000) [ scheduled time of the job to run]
+    avg_run            varchar2(4000) [  average time job takes to run] 
+    max_run_time       varchar2(4000) [ max time job takes to run ] 
+    min_run_time       varchar2(4000) [ max time job takes to run ] 
+
+ETL_SUBJOB_SETUP [ information about the steps of the parent job, ETL job consists of different steps and each different step is called a sub job. 
+    id                 number  /pk                    -- So, this table provides sub job information and is a onetime setup whenever a new job is created. This table will have a foreign key relationship with ETL_job_setup table on the job_id column.
+    etl_job_setup_id   /references etl_subjob_setup   -- The other columns for this table are job_name, job_description, and frequency of this sub job, time at which it is supposed to run, max and min time it should take to run and average
+    job_name           varchar2(400)                  -- time it should take to run. The ETL job can be controlled on the sub job level by using this approach that adds more flexibility to extend the process. For Example: if ETL job has 5 sub
+    job_description    varchar2(400)                  -- jobs, and suppose we have the failure at sub job 4, then instead of re-running the job from the
+    freq               varchar2(400)                  -- step 1 one can design ETL process in such a way that it skips the sub jobs which was done successfully and re-run only the Step 4.        
+    time_to_run        number ---
+    avg_time_to_run    number --- 
+
+etl_jobrun_info
+  Run_Id           This is a primary key for this table and is an identity column.
+  Job_Id           /references etl_job_setup   --Job_Id is there so that we can get the information about the job for which this row belongs. This is a foreign key relationship.
+  Start_time       date          -- This is a date time field and it is populated at the time when the job run starts.
+  End_Time         date          -- This is a date time field and is populated at the time when the job run completes.
+  Elapsed_Time     number        -- This is a difference of the Start_time and End_time and tells the amount of time that this job took to run. Elapsed_Time is in seconds.
+  Run_Status       varchar2(400) --starts as 'RUNNING',then  'SUCCESS' OR 'FAIL'. 
+  Run_By           varchar2(400) --ETL job can be run by 
+  Extract_Count    number        -- count associated with the job run .
+  Load_Count       number        -- Load count gives the count of records which ultimately got loaded. During the load, there could be some bad records from the source. This kind of situation occurs all the time in data warehousing. The difference between the extract count and load count will be the bad record count.
+  Error_Step       varchar2(400) -- This field provides the information about the step at which the error has occured. For example if the ETL has 4 steps, then the step at which the job has failed, this field will be populated. If the job fails at step 3, then the Error_Step will be 3 and it maps to the Sub JobId.
+  LastRunStatus    varchar2(400) -- This field provides the last run status of this job. This field is helpful information for an ETL job because it can help control other ETL job depends upon the last run status 
+
+ETL_SUBJOBRUN_INFO [This table will be populated when the ETL Sub job runs which is a sub step of ETL job and is a part of the ETL job. This table will have more detail level information about each sub job. This table captures all the information about sub job step with the run_id. This helps figuring out the status of the run for that SubJobId. The following discusses the columns for this table]
+  SubJobRunId        --: This is a primary key for this table and will be an identity column.
+  Sub_Job_Id         --: Sub_ Job_Id is there so that we can get the information about the job for which this row belongs. This is a foreign key relationship.
+  Start_Time         --: This is a date time field and it is populated at the time when this sub job run starts.
+  End_Time           --: This is a date time field and is populated at the time when this sub job run completes.
+  Elapsed_Time       --: This is a difference of the Start_time and End_time and tells the amount of time that this job took to run. Elapsed_Time is in seconds.
+  Run_Status         --: This field will be populated when the job initially starts as 'RUNNING' and depending upon the outcome of the job the status will be changed to 'SUCCESS' OR 'FAIL'. This status tells the most current status of the job.
+  Run_Id             --: Run_Id is a foreign key to the Run_Id in the ETL_Jobrun_Info table. This run_id provide the information about the ETL job running of which this Sub Job is one of the step.
+  No_OfRowsIInserted --: This field is populated when the Sub job inserts the rows and this will tell the count of the rows inserted in this job.
+  No_OfRowsUpdated   --: This field is populated when the sub job updates the rows and this will tell the count of the rows updated in this job.
+  No_OfRowsDeleted   --: This field is populated when the Sub job deletes the rows and this will tell the count of the rows deleted in this job.
+  Err_Number         --: If the sub job fails ,the database produces the error number due to which it faills. Different databases produces different error number and this can vary depend field provides the informaition about it.
+  Err_Procedure      --: If the sub job fails, this field provides the name of stored procedure due to which the job failed. In case of multiple stored procedures implemeted in one sub job,this field provides information about the one failed.
+  Err_line           --: If the sub job fails, this field provides exactly which line number has the erorr in the script or the stored procedure.
+  Err_Message        --: This is also a part of the error object. This field tells the error message if the job fails.
+
+ETL_JOB_DEPENDENCY [ ]
+  Source_Job_Id    --: This column is a foreign key relationship to the Job_Id for Job_Setup table. This is the source job id to which some other job will be dependent on . If Job A is dependent on B then this Source Job is job A.
+  Dependent_Job_Id --: This column is a foreign key relationship to the Job_Id for Job_Setup table. This is the dependent job id and it is dependent on Source_Job_Id . If Job A is dependent on B then this Dependent Job is job B.
+  isActive         --: This is a flag to see if this dependency is active or not. There could be some dependencies which you don't want anymore, it is a good idea to keep the history.
+  Start_Date       --: The dependency of the jobs will start at some point of time. This field will be populated when a job dependency relationship is defined at the first time. This is a good practice as it keeps the historical record of the dependencies of ETL.
+  End_Date         --: The dependency could also end at some point of time. This End_Date will
+
+ETL_JOBSOUREDESTINATION_TABLEINFO
+
+  

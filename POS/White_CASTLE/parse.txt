@@ -1,0 +1,392 @@
+https://dickdral.blogspot.com/2015/01/using-pipelined-function-with.html
+https://www.speech2form.com/ords/detora/r/opfg/gen_pf
+TABLE_NAME=> DW_MEDIA_UP_DOWN_FILES
+
+ID              NUMBER
+FILE_NAME"      VARCHAR2(256) 
+CONTENT_TYPE    VARCHAR2(256) 
+SOURCE_DESC     VARCHAR2(4000)
+CONTENT         CLOB  
+
+/******************************
+create or replace package dw_media_up_down_files_pck is
+  type rowtype is record
+     ( id            number
+     , file_name     varchar2(256)
+     , content_type  varchar2(256)
+     , source_desc   varchar2(4000)
+     , context       clob
+     );
+    
+  type table_type is table of rowtype;
+
+  function dw_media_up_down_files_pf
+      ( p_param    in number  default 0
+      ) return dw_media_up_down_files_pck.table_type pipelined;
+end;
+/
+
+create or replace package body dw_media_up_down_files_pck is
+  function dw_media_up_down_files_pf
+      ( p_param    in number  default 0
+      ) return dw_media_up_down_files_pck.table_type pipelined is
+    cursor c is
+      select id 
+           , file_name 
+           , content_type 
+           , source_desc 
+      from   dw_media_up_down_files;
+
+    r_rec           DW_MEDIA_UP_DOWN_FILES_pck.rowtype;
+    v_id            NUMBER;
+    v_file_name     VARCHAR2(256);
+    v_content_type  VARCHAR2(256);
+    v_source_desc   VARCHAR2(4000);
+    
+  begin
+    open c;
+    loop
+      /* get data */
+      fetch c into  v_id 
+                  , v_file_name 
+                  , v_content_type 
+                  , v_source_desc 
+                  ;
+
+      /* stop when no more data */
+      exit when c%notfound;
+    
+      /* build record type */
+      r_rec.id              := v_id;
+      r_rec.file_name       := v_file_name;
+      r_rec.content_type    := v_content_type;
+      r_rec.source_desc     := v_source_desc;
+
+      /* return record type as row */
+      pipe row(r_rec);
+
+    end loop;
+    close c;
+    
+    return;
+
+  end dw_media_up_down_files_pf;
+
+end dw_media_up_down_files_pck;
+
+create or replace view dw_media_up_down_files_view as select * from table(dw_media_up_down_files_pck.dw_media_up_down_files_pf());
+
+**********************************/
+
+CREATE TABLE  "DW_MEDIA_UP_DOWN_FILES" 
+   (	"ID"             NUMBER(*,0) GENERATED ALWAYS AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  NOT NULL ENABLE, 
+	"FILE_NAME"      VARCHAR2(256) COLLATE "USING_NLS_COMP" NOT NULL ENABLE, 
+	"CONTENT_TYPE"   VARCHAR2(256) COLLATE "USING_NLS_COMP" NOT NULL ENABLE, 
+	"CONTENT"        BLOB   NOT NULL   ENABLE, 
+	"SOURCE_DESC"    VARCHAR2(4000) COLLATE "USING_NLS_COMP", 
+	 CONSTRAINT "DW_MEDIA_UP_DOWN_FILES_PK" PRIMARY KEY ("ID")
+  USING INDEX  ENABLE
+   )  DEFAULT COLLATION "USING_NLS_COMP"
+/
+MIME_TYPE
+UPLOAD_DATE
+
+
+create or replace function jeff_clobfromblob(p_blob blob) return clob is
+      l_clob         clob;
+      l_dest_offsset integer := 1;
+      l_src_offsset  integer := 1;
+      l_lang_context integer := dbms_lob.default_lang_ctx;
+      l_warning      integer;
+
+   begin
+
+      if p_blob is null then
+         return null;
+      end if;
+
+      dbms_lob.createTemporary(lob_loc => l_clob
+                              ,cache   => false);
+
+      dbms_lob.converttoclob(dest_lob     => l_clob
+                            ,src_blob     => p_blob
+                            ,amount       => dbms_lob.lobmaxsize
+                            ,dest_offset  => l_dest_offsset
+                            ,src_offset   => l_src_offsset
+                            ,blob_csid    => dbms_lob.default_csid
+                            ,lang_context => l_lang_context
+                            ,warning      => l_warning);
+
+      return l_clob;
+
+   end;
+
+
+
+select * from DW_MEDIA_UP_DOWN_FILES;
+no data found 
+
+C:\White_castle_15>type A04222005.hou
+4000036020037522005A000042+00002+00000982+00000934+00085+00002+00381+00000
+4000037520039022005A000042+00005+00003090+00002779+00060+00005+00953+00000
+4000039020040522005A000042+00003+00002139+00001947+00045+00003+00752+00001
+4000040520042022005A000042+00002+00001672+00001615+00050+00002+00467+00000
+4000042020043522005A000042+00006+00003337+00002209+00060+00005+00804+00001
+4000043520045022005A000042+00009+00005316+00005239+00060+00009+04335+00009
+4000045020046522005A000042+00007+00004599+00004446+00060+00007+02600+00005
+4000046520048022005A000042+00004+00002416+00002169+00060+00004+01129+00002
+4000048020049522005A000042+00006+00004928+00004425+00071+00006+02479+00005
+4000049520051022005A000042+00008+00005939+00005452+00075+00008+02509+00004
+4000051020052522005A000042+00006+00005802+00005220+00075+00005+01955+00005
+4000052520054022005A000042+00007+00005494+00005339+00078+00007+04707+00007
+4000054020055522005A000042+00009+00008152+00007434+00095+00008+02502+00003
+4000055520057022005A000042+00005+00002277+00002083+00090+00005+01337+00002
+4000057020058522005A000042+00007+00008710+00008493+00093+00005+01470+00002
+4000058520060022005A000042+00005+00004351+00004074+00086+00004+00601+00000
+4000060020061522005A000042+00005+00006469+00006166+00098+00004+01670+00002
+4000061520063022005A000042+00013+00016360+00015068+00112+00013+06971+00008
+4000063020064522005A000042+00004+00003709+00001289+00117+00004+00646+00001
+4000064520066022005A000042+00007+00007402+00006893+00110+00007+01679+00001
+4000066020067522005A000042+00011+00010303+00009471+00124+00011+02377+00002
+4000067520069022005A000042+00011+00009141+00008018+00120+00010+02880+00006
+4000069020070522005A000042+00004+00003598+00003133+00120+00004+02736+00003
+4000070520072022005A000042+00011+00011647+00011122+00120+00012+07410+00010
+4000072020073522005A000042+00010+00014569+00013844+00120+00010+03087+00006
+4000073520075022005A000042+00010+00012096+00011416+00120+00010+03594+00008
+4000075020076522005A000042+00014+00017664+00016916+00120+00014+06411+00014
+4000076520078022005A000042+00012+00012539+00012286+00120+00009+05233+00009
+4000078020079522005A000042+00015+00020242+00019173+00120+00015+08017+00015
+4000079520081022005A000042+00012+00014314+00013550+00114+00012+05421+00010
+4000081020082522005A000042+00010+00011331+00011051+00105+00009+05119+00009
+4000082520084022005A000042+00009+00007698+00007208+00110+00008+02554+00005
+
+
+substr(RealSalesText,  1,  2) as RecordType,
+SUBSTR(RealSalesText,  3,  6) as StartTime,      -- This is minutes add this to business date midnight --
+SUBSTR(RealSalesText, 10,  5) as EndTime,        -- This is minutes add this to business date midnight --
+SUBSTR(RealSalesText, 15,  5) as BusinessDate,   -- 22005 22 is year, 005 is julian date --
+SUBSTR(RealSalesText, 20,  1) as AreaCode,
+SUBSTR(RealSalesText, 21,  6) as Store,
+SUBSTR(RealSalesText, 27,  6) as Transactions,
+SUBSTR(RealSalesText, 33,  9) as ShouldBeSales,
+SUBSTR(RealSalesText, 42,  9) as NetSales,
+SUBSTR(RealSalesText, 51,  6) as LaborMinutes,
+SUBSTR(RealSalesText, 57,  6) as SOSTransactions,
+SUBSTR(RealSalesText, 63,  6) as SOSTime,
+SUBSTR(RealSalesText, 69,  6) as CLTTransactions
+
+
+
+curl --ssl-no-revoke  "POST"  "https://gd49ef7d5e3cd2d-db202110212330.adb.us-phoenix-1.oraclecloudapps.com/ords/miso/fileup/DW_MEDIA_UP_DOWN_FILES/" ^
+  -H "accept: application/json" -H "file_name: A04222005.hou"  -H "file_type: text" -H "Content-Type: application/json" ^
+  --data-binary "@c:\wHITE_CASTLE_15\A04222005.hou"  -v
+
+* Rebuilt URL to: POST/
+* Could not resolve host: POST
+* Closing connection 0
+curl: (6) Could not resolve host: POST
+*   Trying 138.1.118.157...
+* TCP_NODELAY set
+* Connected to gd49ef7d5e3cd2d-db202110212330.adb.us-phoenix-1.oraclecloudapps.com (138.1.118.157) port 443 (#1)
+* schannel: SSL/TLS connection with gd49ef7d5e3cd2d-db202110212330.adb.us-phoenix-1.oraclecloudapps.com port 443 (step 1/3)
+* schannel: disabled server certificate revocation checks
+* schannel: sending initial handshake data: sending 229 bytes...
+* schannel: sent initial handshake data: sent 229 bytes
+* schannel: SSL/TLS connection with gd49ef7d5e3cd2d-db202110212330.adb.us-phoenix-1.oraclecloudapps.com port 443 (step 2/3)
+* schannel: failed to receive handshake, need more data
+* schannel: SSL/TLS connection with gd49ef7d5e3cd2d-db202110212330.adb.us-phoenix-1.oraclecloudapps.com port 443 (step 2/3)
+* schannel: encrypted data got 3576
+* schannel: encrypted data buffer: offset 3576 length 4096
+* schannel: sending next handshake data: sending 126 bytes...
+* schannel: SSL/TLS connection with gd49ef7d5e3cd2d-db202110212330.adb.us-phoenix-1.oraclecloudapps.com port 443 (step 2/3)
+* schannel: encrypted data got 306
+* schannel: encrypted data buffer: offset 306 length 4096
+* schannel: SSL/TLS handshake complete
+* schannel: SSL/TLS connection with gd49ef7d5e3cd2d-db202110212330.adb.us-phoenix-1.oraclecloudapps.com port 443 (step 3/3)
+* schannel: stored credential handle in session cache
+> POST /ords/miso/fileup/DW_MEDIA_UP_DOWN_FILES/ HTTP/1.1
+> Host: gd49ef7d5e3cd2d-db202110212330.adb.us-phoenix-1.oraclecloudapps.com
+> User-Agent: curl/7.55.1
+> accept: application/json
+> file_name: A04222005.hou
+> file_type: text
+> Content-Type: application/json
+> Content-Length: 2432
+> Expect: 100-continue
+>
+* schannel: client wants to read 102400 bytes
+* schannel: encdata_buffer resized 103424
+* schannel: encrypted data buffer: offset 0 length 103424
+* schannel: encrypted data got 54
+* schannel: encrypted data buffer: offset 54 length 103424
+* schannel: decrypted data length: 25
+* schannel: decrypted data added: 25
+* schannel: decrypted data cached: offset 25 length 102400
+* schannel: encrypted data buffer: offset 0 length 103424
+* schannel: decrypted data buffer: offset 25 length 102400
+* schannel: schannel_recv cleanup
+* schannel: decrypted data returned 25
+* schannel: decrypted data buffer: offset 0 length 102400
+< HTTP/1.1 100 Continue
+* We are completely uploaded and fine
+* schannel: client wants to read 102400 bytes
+* schannel: encrypted data buffer: offset 0 length 103424
+* schannel: encrypted data got 306
+* schannel: encrypted data buffer: offset 306 length 103424
+* schannel: decrypted data length: 243
+* schannel: decrypted data added: 243
+* schannel: decrypted data cached: offset 243 length 102400
+* schannel: encrypted data length: 34
+* schannel: encrypted data cached: offset 34 length 103424
+* schannel: decrypted data length: 5
+* schannel: decrypted data added: 5
+* schannel: decrypted data cached: offset 248 length 102400
+* schannel: encrypted data buffer: offset 0 length 103424
+* schannel: decrypted data buffer: offset 248 length 102400
+* schannel: schannel_recv cleanup
+* schannel: decrypted data returned 248
+* schannel: decrypted data buffer: offset 0 length 102400
+< HTTP/1.1 201 Created
+< Date: Thu, 06 Jan 2022 03:49:50 GMT
+< Transfer-Encoding: chunked
+< Connection: keep-alive
+< Location: https://gd49ef7d5e3cd2d-db202110212330.adb.us-phoenix-1.oraclecloudapps.com/ords/miso/fileup/DW_MEDIA_UP_DOWN_FILES/24
+<
+* Connection #1 to host gd49ef7d5e3cd2d-db202110212330.adb.us-phoenix-1.oraclecloudapps.com left intact
+
+
+with abc as ( select a.* ,  jeff_clobfromblob(a.content ) as clob_of  
+                from dw_media_up_down_files a )
+select aBC.*, DBMS_LOB.GETLENGTH(ABC.CLOB_OF) LENGTH_CLOB  from ABC;
+
+create or replace function dw_wc_string_tokenize(
+  p_string in varchar2,
+  p_delim in varchar2
+)
+return sys.odcivarchar2list pipelined
+as
+  i_prev_pos integer := 1;
+  i_pos integer;
+  i_max_pos integer := length(p_string) + 1;
+  i_delim_length integer := length(p_delim);
+begin
+  loop
+    i_pos := instr(p_string, p_delim, i_prev_pos);
+    if i_pos = 0 then
+      i_pos := i_max_pos;
+    end if;
+    pipe row(substr(p_string, i_prev_pos, i_pos - i_prev_pos));
+    exit when i_pos = i_max_pos;
+    i_prev_pos := i_pos + i_delim_length;
+  end loop;
+  return;
+end dw_wc_string_tokenize;
+/
+
+create or replace view dw_wc_parse_15_min_files as 
+with 
+abc as ( select a.id,  jeff_clobfromblob(a.content ) as clob_of from dw_media_up_down_files a ),
+xyz as 
+( select abc.id, 
+           b.* from abc,
+                    dw_wc_15_pipe_clob (p_clob=>abc.clob_of , p_max_lengthb=>74, p_rec_delim=> chr(13)||chr(10) )  b
+) 
+select xyz.id, 
+       xyz.COLUMN_VALUE , 
+substr(xyz.COLUMN_VALUE,  1,  2) as RecordType,
+SUBSTR(xyz.COLUMN_VALUE,  3,  6) as StartTime,      /* -- This is minutes add this to business date midnight --  */
+SUBSTR(xyz.COLUMN_VALUE, 10,  5) as EndTime,        /* -- This is minutes add this to business date midnight --  */
+SUBSTR(xyz.COLUMN_VALUE, 15,  5) as BusinessDate,   /* -- 22005 22 is year, 005 is julian date --                */
+SUBSTR(xyz.COLUMN_VALUE, 20,  1) as AreaCode,
+SUBSTR(xyz.COLUMN_VALUE, 21,  6) as Store,
+SUBSTR(xyz.COLUMN_VALUE, 27,  6) as Transactions,
+SUBSTR(xyz.COLUMN_VALUE, 33,  9) as ShouldBeSales,
+SUBSTR(xyz.COLUMN_VALUE, 42,  9) as NetSales,
+SUBSTR(xyz.COLUMN_VALUE, 51,  6) as LaborMinutes,
+SUBSTR(xyz.COLUMN_VALUE, 57,  6) as SOSTransactions,
+SUBSTR(xyz.COLUMN_VALUE, 63,  6) as SOSTime,
+SUBSTR(xyz.COLUMN_VALUE, 69,  6) as CLTTransactions,
+       rownum 
+  as rowof 
+ from xyz 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
