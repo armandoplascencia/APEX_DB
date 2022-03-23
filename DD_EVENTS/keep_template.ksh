@@ -1,0 +1,1 @@
+(curl https://misorobotics.zendesk.com/api/v2/ticket_metrics.json?page=~PAGENUM~ -v -u sscudder@misorobotics.com/token:3OdyewqLJBXTa2wADSdBHHLsO8t6nvtyFdD3m38m -H "Content-Type: application/json" ) > json_tmp.rename_~PAGENUM~
